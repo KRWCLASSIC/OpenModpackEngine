@@ -34,7 +34,8 @@ if exist "src/temp" (
 cls
 
 :cleancache
-rmdir src\mainframe\cache >nul
+rmdir src\mainframe\cache
+cls
 goto boot
 
 rem Booting procedure and boot logo/art
