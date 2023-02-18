@@ -30,5 +30,5 @@ set /p select="Modpack module nr.: "
 cd ../..
 cd mainframe
 cd
-call cmd /c module-interpreter.bat
+call module-interpreter.bat
 pause >nul
