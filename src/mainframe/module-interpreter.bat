@@ -29,6 +29,10 @@ call module-selector.bat
 
 Aktualnie program zamiast gaah.OMEmodule jako module_1 bierze poprostu module_1 więc pewnie trzeba zapisać nazwe pliku module_1 w pliku
 tekstowym i odczytać ją w tym
+cls
+echo current version doesnt work!
+pause >nul
+exit
 
 :module-loader
 cd ..

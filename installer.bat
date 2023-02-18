@@ -6,7 +6,7 @@ rem "cls" here clears output of chcp command that says its now using other chara
 cls
 
 rem Version variable
-set "ver=a0.0.1"
+set "ver=a0.0.2"
 
 rem Handler for downloading modules, if you making own version of this installer make git repo with your own /src folder and include your mods
 :src-existance-checker
@@ -91,7 +91,7 @@ mkdir temp
 cd temp
 echo Downloading embeded 7-Zip...
 echo.
-curl -LJOS https://github.com/KRWCLASSIC/OptiPack/raw/master/src/misc/7zEmbeded.exe
+curl -LJOS https://github.com/KRWCLASSIC/OpenModpackEngine/raw/master/src/misc/7zEmbeded.exe
 cls
 goto src-handler-7zipconfirmed
 
@@ -100,8 +100,8 @@ rem Creating temp folder outside of the "src" folder (because it isnt exists yet
 cls
 echo Downloading neccessary files...
 echo.
-curl -LJO https://github.com/KRWCLASSIC/OptiPack/archive/master.zip
-"7zEmbeded.exe" x -y OptiPack-master.zip
+curl -LJO https://github.com/KRWCLASSIC/OpenModpackEngine/archive/master.zip
+"7zEmbeded.exe" x -y OpenModpackEngine-master.zip
 cls
 rem Continuing with the installation
 goto src-extract
@@ -109,7 +109,7 @@ goto src-extract
 rem Moving out "src" folder out of the "temp" folder and removing unnecessary "temp" folder
 :src-extract
 cd ..
-move /y "temp/OptiPack-master/src" .
+move /y "temp/OpenModpackEngine-master/src" .
 rd /s /q temp
 cls
 rem Restarting installer to make sure "src" folder is being detected, yes, you could just go back to the src-handler but why? lol
