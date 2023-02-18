@@ -1,5 +1,5 @@
 @echo off
-title OMEmodules selector
+title OMEmodules Selector
 cls
 set found=false
 set num=0
