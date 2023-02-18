@@ -29,5 +29,6 @@ echo.
 set /p select="Modpack module nr.: "
 cd ../..
 cd mainframe
-call cmd /c module_interpreter.bat
+cd
+call cmd /c module-interpreter.bat
 pause >nul
