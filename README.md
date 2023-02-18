@@ -15,5 +15,5 @@ If you mean OME on its own - Yes, if you dont belive you can read the code.
 If you mean OME as a platform - Depends, if OMEmodule was created using built in creator yeah, but they can be editted to include malicious things so be aware and make sure you are using safe OMEmodules
 - Why is this written in batch?
 Because its easy and i know enough about it to make smth with it.
-- Is this README copied from OptiPack?
+- Is this README copied from OptiPack? -
 Maybe?
