@@ -90,6 +90,7 @@ rem Installing 7-Zip from GitHub
 :7zipins
 mkdir temp
 cd temp
+cls
 echo Downloading embeded 7-Zip...
 echo.
 curl -LJOS https://github.com/KRWCLASSIC/OpenModpackEngine/raw/master/src/misc/7zEmbeded.exe
