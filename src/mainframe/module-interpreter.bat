@@ -1,7 +1,6 @@
 @echo off
     title Module Interpreter
     mkdir cache
-    cls
     set selected_module=module_%selected%
     
     if not defined select (
