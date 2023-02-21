@@ -1,13 +1,13 @@
 @echo off
-title Module Informator
 chcp 65001
+title Module Informator
 cls
 
 echo.
 if exist "mainframe/cache/ASCII.txt" (
     type mainframe\cache\ASCII.txt
+    echo.
 )
-echo. 
 
 echo Modpack name: %name%
 echo Modpack version: %ver%
@@ -28,14 +28,14 @@ if defined build-on-ome (
         ) else (
             echo Module too old, update or modify OMEmodule! going back to main menu.
         )
-        timeout 3 >nul
+        timeout 5 >nul
         cd ..
         call installer.bat
 
     )
 ) else (
     echo Module version not defined! going back to main menu.
-    timeout 3 >nul
+    timeout 5 >nul
     cd ..
     call installer.bat
 )
