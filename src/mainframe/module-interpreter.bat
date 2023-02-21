@@ -83,7 +83,7 @@ rem Also github converts unknown file types to LF instead of wanted CRLF so i ad
 copy /Y "misc\OMEmodules\%selected_module%.OMEmodule" "mainframe\cache\%selected_module%.OMEmodule"
 type "mainframe\cache\%selected_module%.OMEmodule" | more /P > "mainframe\cache\%selected_module%.txt"
 ren "mainframe\cache\%selected_module%.txt" "module.bat"
-pause
+cls
 call "mainframe/cache/module.bat"
 
 rem Going on with installation proccess of modpack (from module)
