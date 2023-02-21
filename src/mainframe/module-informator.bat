@@ -51,19 +51,28 @@ rem Displaying versions
 echo OMEmID: %build-on-ome%
 echo OMEID: %OMEm-ver-validator%
 
-rem Comparing OMEmodule version to OME version
-if "%build-on-ome%"=="%OMEm-ver-validator%" (
-    echo Valid module version
-) else (
-    if %build-on-ome% GTR %OMEm-ver-validator% (
-        echo Module too new, update OpenModpackEngine!
+rem Comparing OMEmodule version to OME version, if OMEmodule version not defined - go back to main menu
+if defined build-on-ome (
+    if "%build-on-ome%"=="%OMEm-ver-validator%" (
+        echo Valid module version
     ) else (
-        echo Module too old, update or modify OMEmodule!
+        if "%build-on-ome%" GTR "%OMEm-ver-validator%" (
+            echo Module too new, update OpenModpackEngine! going back to main menu.
+        ) else (
+            echo Module too old, update or modify OMEmodule! going back to main menu.
+        )
+        timeout 3 >nul
+        cd ..
+        call installer.bat
+
     )
+) else (
+    echo Module version not defined! going back to main menu.
     timeout 3 >nul
     cd ..
     call installer.bat
 )
+
 echo.
 rem Asking user for permission to install selected OMEmodule
 set /p installomem="Continue? (y/n): "

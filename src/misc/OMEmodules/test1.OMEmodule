@@ -1,1 +1,7 @@
-echo Empty!& pause
+@echo off
+chcp 65001
+cls
+set "module_loaded=true"
+set "name=No"
+set "ver=0.1"
+call module_interpreter.bat
