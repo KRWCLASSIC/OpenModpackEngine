@@ -3,50 +3,16 @@ title Module Informator
 chcp 65001
 cls
 
+echo.
+if exist "mainframe/cache/ASCII.txt" (
+    type mainframe\cache\ASCII.txt
+)
+echo. 
+
 echo Modpack name: %name%
 echo Modpack version: %ver%
 echo Download link (make sure its safe): %download_source%
-
-rem Dynamic ASCII art displayer (up to 12 lines)
-echo ASCII art:
 echo.
-if defined ASCII1 (
-    echo %ASCII1%
-)
-if defined ASCII2 (
-    echo %ASCII2%
-)
-if defined ASCII3 (
-    echo %ASCII3%
-)
-if defined ASCII4 (
-    echo %ASCII4%
-)
-if defined ASCII5 (
-    echo %ASCII5%
-)
-if defined ASCII6 (
-    echo %ASCII6%
-)
-if defined ASCII7 (
-    echo %ASCII7%
-)
-if defined ASCII8 (
-    echo %ASCII8%
-)
-if defined ASCII9 (
-    echo %ASCII9%
-)
-if defined ASCII10 (
-    echo %ASCII10%
-)
-if defined ASCII11 (
-    echo %ASCII11%
-)
-if defined ASCII12 (
-    echo %ASCII12%
-)
-echo. 
 
 rem Displaying versions
 echo OMEmID: %build-on-ome%
