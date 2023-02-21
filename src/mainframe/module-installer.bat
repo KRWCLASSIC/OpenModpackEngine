@@ -7,6 +7,7 @@ pause >nul
 cd ..
 call installer.bat
 
+cls
 echo Downloading modpack files...
 echo.
 curl -LJO %download_source%

@@ -1,5 +1,6 @@
 @echo off
 title Module Informator
+chcp 65001
 cls
 
 echo Modpack name: %name%
