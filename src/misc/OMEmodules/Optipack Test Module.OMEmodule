@@ -1,5 +1,7 @@
 @echo off
+chcp 65001
 cls
+set "build-on-ome=0"
 set "module_loaded=true"
 set "name=Optipack"
 set "ver=0.1"

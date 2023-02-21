@@ -1,7 +1,7 @@
 @echo off
 
 :module-selector
-title OMEmodules Selector
+title OMEmodule Selector
 cls
 set found=false
 set num=0

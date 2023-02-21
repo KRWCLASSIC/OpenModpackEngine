@@ -1,0 +1,5 @@
+If you want to force old OMEmodule to work with current version here is internal version numbering you can use (used by "build-on-ome" variable)
+
+0 - Universal (Used by Alpha Version modules)
+1 - Beta 0.1
+2 - There is no more version, stay tunned for updates

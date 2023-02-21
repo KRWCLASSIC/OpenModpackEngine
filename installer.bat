@@ -5,8 +5,9 @@ chcp 65001
 rem "cls" here clears output of chcp command that says its now using other character set
 cls
 
-rem Version variable
-set "ver=a0.0.3"
+rem Version variables
+set "ver=a0.0.4"
+set "OMEm-ver-validator=0"& rem 0 = Alpha, check "Module Version Override.txt" file
 
 rem Handler for downloading modules, if you making own version of this installer make git repo with your own /src folder and include your mods
 :src-existance-checker
