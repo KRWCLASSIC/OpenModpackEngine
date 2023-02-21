@@ -6,6 +6,14 @@ OpenModpackEngine is batch script for installing, managing and distributing modp
 
 As for now you only need to download and execute "installer.bat". This will download all requied files and apps (7-Zip included)
 
+# Updating
+
+As for now you need to remove "src" folder and execute installer.bat, updating mechanism will be added in beta, OME is now in alpha stage so fresh installing is better to remove potential bugs
+
+# Modding
+
+When full version will be released i have plans to add modding feature, basicly you can make OME use modified version of my scripts. This could be used to add new features i dont want to add or just for customization reasons (e.g. Modified installer.bat that changes font color for entire "app")
+
 # FAQ (F = May get, lmao)
 
 - Is it safe? -
