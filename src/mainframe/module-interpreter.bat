@@ -37,7 +37,7 @@ if "%found%"=="false" (
 )
 cd ../..
 
-rem Rerouting to informator script
+rem Passing wanted module name to other variable
 echo.
 echo 0) Back
 echo.
@@ -47,6 +47,7 @@ call set "selected_module=%%module_%index%%%"
 goto module-interpreter
 pause >nul
 
+rem Checking if wanted module is valid
 :module-interpreter
 title Module Interpreter
 cd mainframe
@@ -77,10 +78,11 @@ if %select% GTR %num% (
     goto module-selector
 )
 
-rem Loads module to cache folder for next scripts to use its variables doing so, downloading modpack.
+rem Loads wanted module to cache folder for next scripts to use its variables doing so, downloading modpack.
 copy /y "misc\OMEmodules\%selected_module%.OMEmodule" "mainframe\cache\module.bat" >nul
 call "mainframe/cache/module.bat"
 
+rem Going on with installation proccess of modpack (from module)
 :module-informator
 call "mainframe/module-informator.bat"
 exit
