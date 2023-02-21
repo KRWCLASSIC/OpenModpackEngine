@@ -16,5 +16,7 @@ echo %ASCII6%
 echo %ASCII7%
 echo %ASCII8%
 echo.
-echo Continute? (y/n)
+echo Continue? (y/n)
 pause>nul
+cd ..
+call installer.bat

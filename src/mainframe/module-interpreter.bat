@@ -37,9 +37,11 @@ if "%found%"=="false" (
 )
 cd ../..
 
-rem Rerouting to interpreter script
+rem Rerouting to informator script
 echo.
-set /p select="Modpack module nr.: "
+echo 0) Back
+echo.
+set /p select="Option nr.: "
 set /a index=select
 call set "selected_module=%%module_%index%%%"
 goto module-interpreter
@@ -51,6 +53,11 @@ cd mainframe
 mkdir cache
 cd ..
 cls
+
+if %select%== 0 (
+    cd ..
+    call installer.bat
+)
 
 if not defined select (
     echo No module selected
