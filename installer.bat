@@ -6,7 +6,7 @@ rem "cls" here clears output of chcp command that says its now using other chara
 cls
 
 rem Version variable
-set "ver=a0.0.2"
+set "ver=a0.0.3"
 
 rem Handler for downloading modules, if you making own version of this installer make git repo with your own /src folder and include your mods
 :src-existance-checker
@@ -34,8 +34,12 @@ if exist "src/temp" (
 cls
 
 :cleancache
-rmdir src\mainframe\cache
+rmdir /s /q src\mainframe\cache
 cls
+goto cleanmodule
+
+:cleanmodule
+set "module_loaded=false"
 goto boot
 
 rem Booting procedure and boot logo/art
@@ -71,7 +75,7 @@ exit
 
 :2
 cd src/mainframe
-call module-selector.bat
+call module-interpreter.bat
 exit
 
 :3
