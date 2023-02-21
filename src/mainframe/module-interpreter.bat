@@ -84,5 +84,7 @@ call "mainframe/cache/module.bat"
 
 rem Going on with installation proccess of modpack (from module)
 :module-informator
-call "mainframe/module-informator.bat"
+if "%module_loaded%"=="true" (
+    call "mainframe/module-informator.bat"
+)
 exit

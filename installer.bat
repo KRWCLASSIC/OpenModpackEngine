@@ -51,15 +51,17 @@ echo.
 
 rem Selection procedure
 echo 1) Test download to "test" folder.
-echo 2) Download modpack from module.
-echo 3) Open OMEmodules folder.
-echo 4) Change deafult minecraft directory.
+echo 2) Download modpack from OMEmodule.
+echo 3) Open OMEmodule builder (BETA).
+echo 4) Open OMEmodules folder.
+echo 5) Change deafult minecraft directory.
 echo.
 set /p select="Option: "
 if %select%==1 goto 1
 if %select%==2 goto 2
 if %select%==3 goto 3
 if %select%==4 goto 4
+if %select%==5 goto 5
 rem Restart procedure
 if %select%==r goto r
 call installer.bat
@@ -79,13 +81,18 @@ call module-interpreter.bat
 exit
 
 :3
+cd src/misc/tools
+call module-builder.bat
+exit
+
+:4
 cd src/misc
 start OMEmodules
 cd ../..
 goto r
 exit
 
-:4
+:5
 cd src/misc
 call chg-mc-dir.bat
 exit
