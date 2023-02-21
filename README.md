@@ -8,7 +8,7 @@ As for now you only need to download and execute "installer.bat". This will down
 
 # Updating
 
-As for now you need to remove "src" folder and execute installer.bat, updating mechanism will be added in beta, OME is now in alpha stage so fresh installing is better to remove potential bugs
+As for now you need to remove entire program and reinstall it from github, updating mechanism will be added in beta, OME is now in alpha stage so fresh installing is better to remove potential bugs
 
 # Modding
 
