@@ -82,6 +82,7 @@ rem Loads wanted module to cache folder for next scripts to use its variables do
 rem Also github converts unknown file types to LF instead of wanted CRLF so i added "type" command to convert it
 copy /Y "misc\OMEmodules\%selected_module%.OMEmodule" "mainframe\cache\%selected_module%.OMEmodule"
 type "mainframe\cache\%selected_module%.OMEmodule" | more /P > "mainframe\cache\%selected_module%.txt"
+del "mainframe\cache\%selected_module%.OMEmodule"
 ren "mainframe\cache\%selected_module%.txt" "module.bat"
 cls
 call "mainframe/cache/module.bat"
