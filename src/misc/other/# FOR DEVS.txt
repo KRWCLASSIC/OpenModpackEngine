@@ -7,3 +7,4 @@
 - src/mainframe/module-informator.bat
 - src/mainframe/module-interpreter.bat
 - src/mainframe/module-installer.bat
+- src/misc/tools/module-builder.bat
