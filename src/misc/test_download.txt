@@ -1,1 +1,1 @@
-Hi! Alpha 0.0.5
+Hi! Alpha 0.0.6

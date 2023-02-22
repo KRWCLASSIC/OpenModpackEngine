@@ -6,7 +6,7 @@ rem "cls" here clears output of chcp command that says its now using other chara
 cls
 
 rem Version variables
-set "ver=a0.0.5"
+set "ver=a0.0.6"
 set "OMEm-ver-validator=0"& rem 0 = Alpha, check "Module Version Override.txt" file
 
 rem Set "select" variable to "r" to make sure installer.bat doesnt crash when nothing is inputted on fresh boot
@@ -46,15 +46,19 @@ goto boot
 
 rem Booting procedure and boot logo/art
 :boot
-echo        OpenModpackEngine
-echo          Version %ver%
+echo             ▄▄▄·▄▄▄ . ▐ ▄     • ▌ ▄ ·.       ·▄▄▄▄   ▄▄▄· ▄▄▄·  ▄▄· ▄ •▄     ▄▄▄ . ▐ ▄  ▄▄ • ▪    ·▐ ▄ ▄▄▄ .
+echo       ▄█▀▄ ▐█ ▄█▀▄.▀·•█▌▐█    ·██ ▐███▪ ▄█▀▄ ██▪ ██ ▐█ ▄█▐█ ▀█ ▐█ ▌▪█▌▄▌▪    ▀▄.▀·•█▌▐█▐█ ▀ ▪██   •█▌▐█▀▄.▀·
+echo      ▐█▌.▐▌ ██▀·▐▀▀▪▄▐█▐▐▌    ▐█ ▌▐▌▐█·▐█▌.▐▌▐█· ▐█▌ ██▀·▄█▀▀█ ██ ▄▄▐▀▀▄·    ▐▀▀▪▄▐█▐▐▌▄█ ▀█▄▐█·  ▐█▐▐▌▐▀▀▪▄
+echo      ▐█▌.▐▌▐█▪·•▐█▄▄▌██▐█▌    ██ ██▌▐█▌▐█▌.▐▌██. ██ ▐█▪·•▐█ ▪▐▌▐███▌▐█.█▌    ▐█▄▄▌██▐█▌▐█▄▪▐█▐█▌• ██▐█▌▐█▄▄▌
+echo       ▀█▄▀▪.▀    ▀▀▀ ▀▀ █▪    ▀▀  █▪▀▀▀ ▀█▄▀▪▀▀▀▀▀• .▀    ▀  ▀ ·▀▀▀ ·▀  ▀     ▀▀▀ ▀▀ █▪·▀▀▀▀ ▀▀▀ ▀▀▀ █▪ ▀▀▀ 
+echo                  Version %ver%
 echo.
 echo.
 
 rem Selection procedure
 echo 1) Test download to "test" folder.
 echo 2) Download modpack from OMEmodule.
-echo 3) Open OMEmodule builder (BETA).
+echo 3) Open OMEmodule builder (ALPHA).
 echo 4) Open OMEmodules folder.
 echo 5) Change deafult minecraft directory.
 echo.
@@ -100,6 +104,7 @@ exit
 
 rem Installing 7-Zip from GitHub
 :7zipins
+title Downloading OME files...
 mkdir temp
 cd temp
 cls
