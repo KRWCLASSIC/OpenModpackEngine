@@ -7,11 +7,11 @@ cls
 mkdir working-dir >nul
 cd working-dir
 cls
-echo                                        __    
-echo            (\,------------------------'()'--o
-echo             (_    _OMEmodule Builder_    /~" 
-echo              (_)_)                  (_)_)    
-echo                    Version "Alpha%OMEm-ver-validator%"
+echo                                                            __    
+echo                                (\,------------------------'()'--o
+echo                                 (_    _OMEmodule Builder_    /~" 
+echo                                  (_)_)                  (_)_)    
+echo                                        Version "Alpha%OMEm-ver-validator%"
 echo.
 set "filename=unnamed"
 set /p "filename=       OMEmodule filename: "
@@ -32,7 +32,7 @@ echo call mainframe/module_interpreter.bat >>"%filename%.OMEmodule"
 echo.
 
 echo This version of Module Builder doesn't support ASCII art!
-timeout 1 >nul
+timeout 2 >nul
 cls
 
 cd ../../../..
