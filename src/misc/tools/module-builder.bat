@@ -19,8 +19,8 @@ echo.
 
 rem Giving info what to put in the OMEmodule
 set "filename=unnamed"
+set /p filename="OMEmodule filename: "
 set /p modpackname="Modpack name: "
-set /p "filename=OMEmodule filename: "
 set /p modpackver="Modpack version: "
 set /p modpackauthor="Modpack author: "
 set /p moduleauthor="Module author: "
