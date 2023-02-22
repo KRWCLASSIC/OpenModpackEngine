@@ -1,19 +1,22 @@
 @echo off
+rem Basic setup: Enabling support for characters used in ASCII arts, Setting window/tab title, clearing the screen after previous script
 chcp 65001
 title Module Informator
 cls
 
+rem Checking if ASCII.txt file exists, if true - display its contents
 echo.
 if exist "mainframe/cache/ASCII.txt" (
     type mainframe\cache\ASCII.txt
     echo.
 )
 
+rem Displaying info about selected before module
 echo Modpack name: %name%
 echo Modpack version: %ver%
 echo Modpack author: %modpackauthor%
 echo Module author: %moduleauthor%
-echo Description: %desc%
+echo Description: %modpackdesc%
 echo Download link (make sure its safe): %download_source%
 echo.
 
@@ -31,7 +34,7 @@ if defined build-on-ome (
         ) else (
             echo Module too old, update or modify OMEmodule! going back to main menu.
         )
-        timeout 5 >nul
+        timeout 7 >nul
         cd ..
         call installer.bat
 
@@ -57,6 +60,7 @@ if "%installomem%"=="y" (
 )
 exit
 
+rem Installing mods from selected before OMEmodule
 :y
 call mainframe/module-installer.bat
 exit

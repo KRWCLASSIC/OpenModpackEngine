@@ -8,3 +8,9 @@
 - src/mainframe/module-interpreter.bat
 - src/mainframe/module-installer.bat
 - src/misc/tools/module-builder.bat
+
+# How mainframe etc. works?
+
+I use advantage of using "call" command that is passing variables to other scripts, using that i can extract info about modpack from OMEmodule
+that is build to dont even showing itself to user, it gets executed, variables are getting set and everything gets passed for other scripts
+like module-installer and module-informator to use
