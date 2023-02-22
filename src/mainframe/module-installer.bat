@@ -11,5 +11,5 @@ cls
 echo Downloading modpack files...
 echo.
 curl -LJO %download_source%
-"7zEmbeded.exe" x -y .zip
+"7zEmbeded.exe" x -y OMEmods.zip
 cls
