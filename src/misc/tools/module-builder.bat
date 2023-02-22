@@ -7,11 +7,11 @@ cls
 mkdir working-dir >nul
 cd working-dir
 cls
-echo                                                            __    
-echo                                (\,------------------------'()'--o
-echo                                 (_    _OMEmodule Builder_    /~" 
-echo                                  (_)_)                  (_)_)    
-echo                                        Version "Alpha%OMEm-ver-validator%"
+echo                                                                        __    
+echo                                            (\,------------------------'()'--o
+echo                                             (_    _OMEmodule Builder_    /~" 
+echo                                              (_)_)                  (_)_)    
+echo                                                    Version "Alpha%OMEm-ver-validator%"
 echo.
 set "filename=unnamed"
 set /p "filename=       OMEmodule filename: "
