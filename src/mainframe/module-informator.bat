@@ -11,6 +11,9 @@ if exist "mainframe/cache/ASCII.txt" (
 
 echo Modpack name: %name%
 echo Modpack version: %ver%
+echo Modpack author: %modpackauthor%
+echo Module author: %moduleauthor%
+echo Description: %desc%
 echo Download link (make sure its safe): %download_source%
 echo.
 

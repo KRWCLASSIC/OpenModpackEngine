@@ -7,7 +7,7 @@ cls
 
 rem Version variables
 set "ver=a0.0.6"
-set "OMEm-ver-validator=0"& rem 0 = Alpha, check "Module Version Override.txt" file
+set "OMEm-ver-validator=1"& rem check "Module Version Override.txt" file
 
 rem Set "select" variable to "r" to make sure installer.bat doesnt crash when nothing is inputted on fresh boot
 set "select=r"

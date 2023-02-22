@@ -11,20 +11,32 @@ echo                                                                        __
 echo                                            (\,------------------------'()'--o
 echo                                             (_    _OMEmodule Builder_    /~" 
 echo                                              (_)_)                  (_)_)    
-echo                                                    Version "Alpha%OMEm-ver-validator%"
+echo                                                  Version "Vo%OMEm-ver-validator%d Eater"
 echo.
 set "filename=unnamed"
-set /p "filename=       OMEmodule filename: "
+set /p "filename=OMEmodule filename: "
 echo chcp 65001 >"%filename%.OMEmodule"
 echo @echo off >>"%filename%.OMEmodule"
 echo cls >>"%filename%.OMEmodule"
 echo set "build-on-ome=%OMEm-ver-validator%" >>"%filename%.OMEmodule"
 echo set "module_loaded=true" >>"%filename%.OMEmodule"
-set /p modpackname="        Modpack name: "
+
+set /p modpackname="Modpack name: "
 echo set "name=%modpackname%" >>"%filename%.OMEmodule"
-set /p modpackver="         Modpack version: "
+
+set /p modpackver="Modpack version: "
 echo set "ver=%modpackver%" >>"%filename%.OMEmodule"
-set /p modslink="       Link to mods download (archive must be named OMEmods.zip): "
+
+set /p modpackauthor="Modpack author: "
+echo set "modpackauthor=%modpackauthor%" >>"%filename%.OMEmodule"
+
+set /p moduleauthor="Module author: "
+echo set "moduleauthor=%moduleauthor%" >>"%filename%.OMEmodule"
+
+set /p modpackdesc="Modpack description: "
+echo set "modpackdesc=%modpackdesc%" >>"%filename%.OMEmodule"
+
+set /p modslink="Link to mods download (archive must be named OMEmods.zip): "
 echo set "download_source=%modslink%" >>"%filename%.OMEmodule"
 echo echo. >>"%filename%.OMEmodule"
 echo echo ####F#I#L#L#E#R#### ^>^>mainframe/cache/ASCII.txt >>"%filename%.OMEmodule"
