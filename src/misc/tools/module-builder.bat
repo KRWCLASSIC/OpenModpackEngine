@@ -1,7 +1,9 @@
 @echo off
 rem Basic setup: Enabling support for characters used in ASCII arts, Setting window/tab title, clearing the screen after previous script
 chcp 65001
+set /a n=0
 title Module Builder
+setlocal EnableDelayedExpansion& rem oh no... delayed expansion, my biggest fear
 cls
 
 rem Making folder that module builder is working in to create module
@@ -14,8 +16,11 @@ echo                                                                        __
 echo                                            (\,------------------------'()'--o
 echo                                             (_    _OMEmodule Builder_    /~" 
 echo                                              (_)_)                  (_)_)    
-echo                                                  Version "Vo%OMEm-ver-validator%d Eater"
+echo                                                 Version "Van%OMEm-ver-validator%lla Cream"
 echo.
+
+rem Asking user if (s)he wants to add ASCII art
+set /p addascii="Do you want to add ASCII art? (y/n): "
 
 rem Giving info what to put in the OMEmodule
 set "filename=unnamed"
@@ -26,6 +31,7 @@ set /p modpackauthor="Modpack author: "
 set /p moduleauthor="Module author: "
 set /p modpackdesc="Modpack description: "
 set /p modslink="Link to mods download: "
+echo.
 
 rem Putting given info in OMEmodule
 echo chcp 65001 >"%filename%.OMEmodule"
@@ -39,16 +45,36 @@ echo set "modpackauthor=%modpackauthor%" >>"%filename%.OMEmodule"
 echo set "moduleauthor=%moduleauthor%" >>"%filename%.OMEmodule"
 echo set "modpackdesc=%modpackdesc%" >>"%filename%.OMEmodule"
 echo set "download_source=%modslink%" >>"%filename%.OMEmodule"
+
+if "%addascii%"=="y" (
+    goto addasciiproc
+) else (
+    if "%addascii%"=="n" (
+        goto next
+    ) else (
+        goto next
+    )
+)
+
+:addasciiproc
+echo.>ascii.txt
+echo Paste and save your ASCII art in text file that opened right now, press enter if you've done that.
+notepad ascii.txt
+pause >nul
 echo echo.^>mainframe/cache/ASCII.txt >>"%filename%.OMEmodule"
-echo echo ####F#I#L#L#E#R#### ^>^>mainframe/cache/ASCII.txt >>"%filename%.OMEmodule"
+for /f "usebackq delims=`" %%a in ("ascii.txt") do (
+  set /a n+=1
+  set "ASCII!n!=%%a"
+)
+set "ASCII-lines=%n%"
+for /l %%i in (1, 1, %ASCII-lines%) do (
+  echo echo !ASCII%%i! ^>^>mainframe/cache/ASCII.txt >>"%filename%.OMEmodule"
+)
+
+:next
 echo call mainframe/module_interpreter.bat >>"%filename%.OMEmodule"
-echo.
 
-rem Warning about ASCII support
-echo This version of Module Builder doesn't support ASCII art!
-timeout 3 >nul
-cls
-
+:back
 rem Moving created OMEmodule to "OMEmodules" folder and going back to main menu (installer.bat)
 cd ../../../..
 move /y "src\misc\tools\working-dir\%filename%.OMEmodule" "src\misc\OMEmodules\%filename%.OMEmodule" >nul

@@ -2,6 +2,7 @@ If you want to force old OMEmodule to work with current version here is internal
 
 Used by Alpha Versions of OME:
 0 - "Alpha0"
-1 - "Vo1d Eater"
+1 - "Vo1d Eater" (Without ASCII support in OMEmodule builder)
+1 - "Van1lla Cream" (With ASCII support in OMEmodule builder)
 
 Used by Beta Versions OME:
