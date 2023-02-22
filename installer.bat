@@ -9,6 +9,9 @@ rem Version variables
 set "ver=a0.0.5"
 set "OMEm-ver-validator=0"& rem 0 = Alpha, check "Module Version Override.txt" file
 
+rem Set "select" variable to "r" to make sure installer.bat doesnt crash when nothing is inputted on fresh boot
+set "select=r"
+
 rem Handler for downloading modules, if you making own version of this installer make git repo with your own /src folder and include your mods
 :src-existance-checker
 if exist "src" (
@@ -25,7 +28,7 @@ rem Handler for "temp" folder
 if exist "src/temp" (
   rem Continuing with booting procedure
   cls
-  goto cleancache
+  goto clean
 ) else (
   rem Making "temp" directory in "src" folder
   cd src
@@ -34,13 +37,11 @@ if exist "src/temp" (
 )
 cls
 
-:cleancache
+:clean
 rmdir /s /q src\mainframe\cache
-cls
-goto cleanmodule
-
-:cleanmodule
+rmdir /s /q src\misc\tools\working-dir
 set "module_loaded=false"
+cls
 goto boot
 
 rem Booting procedure and boot logo/art
@@ -58,6 +59,7 @@ echo 4) Open OMEmodules folder.
 echo 5) Change deafult minecraft directory.
 echo.
 set /p select="Option: "
+
 if %select%==1 goto 1
 if %select%==2 goto 2
 if %select%==3 goto 3
@@ -65,8 +67,6 @@ if %select%==4 goto 4
 if %select%==5 goto 5
 rem Restart procedure
 if %select%==r goto r
-call installer.bat
-exit
 
 rem Selection executables
 rem "exit" line between of each tag is to make sure installer.bat window is getting closed when opening other *.bat file

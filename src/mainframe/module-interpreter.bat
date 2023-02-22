@@ -80,7 +80,7 @@ if %select% GTR %num% (
 
 rem Loads wanted module to cache folder for next scripts to use its variables doing so, downloading modpack.
 rem Also github converts unknown file types to LF instead of wanted CRLF so i added "type" command to convert it
-copy /Y "misc\OMEmodules\%selected_module%.OMEmodule" "mainframe\cache\%selected_module%.OMEmodule"
+copy /y "misc\OMEmodules\%selected_module%.OMEmodule" "mainframe\cache\%selected_module%.OMEmodule"
 type "mainframe\cache\%selected_module%.OMEmodule" | more /P > "mainframe\cache\%selected_module%.txt"
 del "mainframe\cache\%selected_module%.OMEmodule"
 ren "mainframe\cache\%selected_module%.txt" "module.bat"
