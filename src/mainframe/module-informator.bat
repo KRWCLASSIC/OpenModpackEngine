@@ -5,7 +5,6 @@ title Module Informator
 cls
 
 rem Checking if ASCII.txt file exists, if true - display its contents
-echo.
 if exist "mainframe/cache/ASCII.txt" (
     type mainframe\cache\ASCII.txt
     echo.
