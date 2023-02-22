@@ -1,4 +1,5 @@
 @echo off
+chcp 65001
 
 :module-selector
 title OMEmodule Selector
