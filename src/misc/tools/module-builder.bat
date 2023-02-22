@@ -25,7 +25,7 @@ set /p modpackver="Modpack version: "
 set /p modpackauthor="Modpack author: "
 set /p moduleauthor="Module author: "
 set /p modpackdesc="Modpack description: "
-set /p modslink="Link to mods download (archive must be named OMEmods.zip): "
+set /p modslink="Link to mods download: "
 
 rem Putting given info in OMEmodule
 echo chcp 65001 >"%filename%.OMEmodule"

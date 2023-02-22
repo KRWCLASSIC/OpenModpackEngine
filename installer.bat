@@ -40,6 +40,7 @@ cls
 :clean
 rmdir /s /q src\mainframe\cache
 rmdir /s /q src\misc\tools\working-dir
+del /Q src\temp
 set "module_loaded=false"
 cls
 goto boot

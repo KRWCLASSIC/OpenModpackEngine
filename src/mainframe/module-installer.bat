@@ -2,14 +2,13 @@
 title Module Installer
 cls
 
-echo Current installer doesnt work!
-pause >nul
-cd ..
-call installer.bat
-
-cls
-echo Downloading modpack files...
+echo Downloading modpack mods...
 echo.
-curl -LJO %download_source%
-"7zEmbeded.exe" x -y OMEmods.zip
+cd temp
+curl -LJO "%download_source%"
+ren *.zip OMEmods.zip
 cls
+
+cd ..
+call misc/post-init.bat
+exit
