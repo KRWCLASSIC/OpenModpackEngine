@@ -1,13 +1,16 @@
-chcp 65001
-@echo off
-cls
-set "build-on-ome=0"
-set "module_loaded=true"
-set "name=Optipack"
-set "ver=0.1"
-set "download_source=https://www.dropbox.com/s/1stjhlw6b0xpy35/OptiPackFull.zip"
-echo.
-echo ╭━━━╮╱╱╭╮╱╭━━━╮╱╱╱╱╱╭╮>mainframe/cache/ASCII.txt
+chcp 65001 
+@echo off 
+cls 
+set "build-on-ome=1" 
+set "module_loaded=true" 
+set "name=OptiPack" 
+set "ver=0.1" 
+set "modpackauthor=KRW CLASSIC" 
+set "moduleauthor=KRW CLASSIC" 
+set "modpackdesc=OptiPack is Minecraft 1.19.2 Optimization and QOL Modpack for Fabric" 
+set "download_source=https://www.dropbox.com/s/1stjhlw6b0xpy35/OptiPackFull.zip" 
+echo.>mainframe/cache/ASCII.txt
+echo ╭━━━╮╱╱╭╮╱╭━━━╮╱╱╱╱╱╭╮>>mainframe/cache/ASCII.txt
 echo ┃╭━╮┃╱╭╯╰╮┃╭━╮┃╱╱╱╱╱┃┃>>mainframe/cache/ASCII.txt
 echo ┃┃╱┃┣━┻╮╭╋┫╰━╯┣━━┳━━┫┃╭╮>>mainframe/cache/ASCII.txt
 echo ┃┃╱┃┃╭╮┃┃┣┫╭━━┫╭╮┃╭━┫╰╯╯>>mainframe/cache/ASCII.txt
@@ -15,4 +18,4 @@ echo ┃╰━╯┃╰╯┃╰┫┃┃╱╱┃╭╮┃╰━┫╭╮╮>>m
 echo ╰━━━┫╭━┻━┻┻╯╱╱╰╯╰┻━━┻╯╰╯>>mainframe/cache/ASCII.txt
 echo ╱╱╱╱┃┃>>mainframe/cache/ASCII.txt
 echo ╱╱╱╱╰╯>>mainframe/cache/ASCII.txt
-call mainframe/module_interpreter.bat
+call mainframe/module_interpreter.bat 

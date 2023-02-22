@@ -39,7 +39,7 @@ echo set "modpackauthor=%modpackauthor%" >>"%filename%.OMEmodule"
 echo set "moduleauthor=%moduleauthor%" >>"%filename%.OMEmodule"
 echo set "modpackdesc=%modpackdesc%" >>"%filename%.OMEmodule"
 echo set "download_source=%modslink%" >>"%filename%.OMEmodule"
-echo echo. >>"%filename%.OMEmodule"
+echo echo.^>mainframe/cache/ASCII.txt >>"%filename%.OMEmodule"
 echo echo ####F#I#L#L#E#R#### ^>^>mainframe/cache/ASCII.txt >>"%filename%.OMEmodule"
 echo call mainframe/module_interpreter.bat >>"%filename%.OMEmodule"
 echo.
