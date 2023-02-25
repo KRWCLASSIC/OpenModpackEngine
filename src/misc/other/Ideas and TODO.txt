@@ -7,6 +7,11 @@
 - Save/Load modpacks
 - Autoupdate ig
 
+# For BatchTexturepackGenerator (BTG)
+- Generate texturepacks
+- Support for most popular minecraft versions
+- Support for Optifine and Chisel CTM
+
 # For BatchCraft Collection
 - Little batch script for downloading and installing all of my programs described there
 - Integration of other minecraft tools made in batch (with credits ofc)
