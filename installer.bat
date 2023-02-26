@@ -58,6 +58,7 @@ rem Booting procedure and boot logo/art
 :boot
 cls
 set "settingsloaded=false"
+echo.
 echo             ▄▄▄·▄▄▄ . ▐ ▄     • ▌ ▄ ·.       ·▄▄▄▄   ▄▄▄· ▄▄▄·  ▄▄· ▄ •▄     ▄▄▄ . ▐ ▄  ▄▄ • ▪    ·▐ ▄ ▄▄▄ .
 echo       ▄█▀▄ ▐█ ▄█▀▄.▀·•█▌▐█    ·██ ▐███▪ ▄█▀▄ ██▪ ██ ▐█ ▄█▐█ ▀█ ▐█ ▌▪█▌▄▌▪    ▀▄.▀·•█▌▐█▐█ ▀ ▪██   •█▌▐█▀▄.▀·
 echo      ▐█▌.▐▌ ██▀·▐▀▀▪▄▐█▐▐▌    ▐█ ▌▐▌▐█·▐█▌.▐▌▐█· ▐█▌ ██▀·▄█▀▀█ ██ ▄▄▐▀▀▄·    ▐▀▀▪▄▐█▐▐▌▄█ ▀█▄▐█·  ▐█▐▐▌▐▀▀▪▄
@@ -72,13 +73,12 @@ echo 1) Test download to "test" folder.
 echo 2) Download modpack from OMEmodule.
 echo 3) Open OMEmodule builder (ALPHA).
 echo 4) Open OMEmodules folder.
-echo 5) Change deafult minecraft directory.
-echo 6) Settings.
+echo 5) Settings.
 echo.
 set /p ins-select="Option: "
 
 rem Making sure you cant break installer.bat no matter what
-set "valid_options=123456r0"
+set "valid_options=123450r"
 if "%ins-select%"==" " goto r
 echo %valid_options% | findstr /C:"%ins-select%" >nul || goto r 2>nul
 
@@ -86,9 +86,7 @@ if %ins-select%==1 goto test-dl
 if %ins-select%==2 goto m-itp
 if %ins-select%==3 goto m-b
 if %ins-select%==4 goto m-fol
-if %ins-select%==5 goto c-mcd
-if %ins-select%==6 goto stgs
-if %ins-select%==r goto r
+if %ins-select%==5 goto stgs
 if %ins-select%==0 exit
 goto r
 
@@ -112,10 +110,6 @@ cd src/misc
 start OMEmodules
 cd ../..
 goto r
-
-:c-mcd
-cd src/misc
-call chg-mc-dir.bat
 
 :stgs
 cd src/misc

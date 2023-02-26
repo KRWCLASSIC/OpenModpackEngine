@@ -17,11 +17,14 @@
 - Integration of other minecraft tools made in batch (with credits ofc)
 
 # For OpenModpackEngine downloader/manager:
+- MAJOR: Restructualization, basicly exe/new script for installing OME, app would be launched by single script and app files stored in AppData?
+  > or still the same but just hide installer.bat and src in "OME" folder (to help installation process) with new launcher and auto updater
+                                                                            ^^^ Make installation easier to do and read
 - MPS (ModPackSwitcher) integration
 - Support for instance's based launchers (ATlauncher, Crystal Launcher etc.)
 - Exporting all downloaded/added modules
 - Much more customizability (OMEmodding)
-- Auto updater (soon)
+- Update system (soon)
 - Support for rift and quilt modpacks ↓↓↓ (Late development thing)
 - Checker if correct version of modloader is installed (add to: module-informator/interpreter and module-builder)
 - Auto Modloader downloader

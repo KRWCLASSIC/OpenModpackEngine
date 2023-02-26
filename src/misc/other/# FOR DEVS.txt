@@ -8,6 +8,8 @@
 - src/mainframe/module-interpreter.bat
 - src/mainframe/module-installer.bat
 - src/misc/tools/module-builder.bat
+- src/misc/settings.bat
+- src/misc/settings-loader.bat
 
 # How mainframe etc. works?
 

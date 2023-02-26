@@ -4,9 +4,10 @@ title Settings
 set "settingsloaded=false"
 cls
 
-echo 1) Update OME
-echo 2) OME Mods
-echo 3) Export OMEmodules
+echo 1) Change deafult minecraft directory.
+echo 2) Export OMEmodules.
+echo 3) Update OME.
+echo 4) OME Mods.
 echo.
 echo 0) Back
 echo.
@@ -14,9 +15,14 @@ set "settings-select=0"
 set /p settings-select="Option: "
 if "%settings-select%"==" " goto back
 if %settings-select%==0 goto back
-if %settings-select%==1 goto OMEupdate
-if %settings-select%==2 goto OMEmods
-if %settings-select%==3 goto ExOMEm
+if %settings-select%==1 goto c-mcd
+if %settings-select%==2 goto ExOMEm
+if %settings-select%==3 goto OMEupdate
+if %settings-select%==4 goto OMEmods
+goto back
+
+:c-mcd
+call chg-mc-dir.bat
 
 :OMEupdate
 cls
