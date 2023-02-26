@@ -19,7 +19,7 @@ if exist "src" (
   goto temphandler
 ) else (
   rem Downloading "src" folder from project github, this folder includes modules for this to work (By going to src-handler)
-  goto 7zipins
+  goto dl-src
 )
 cls
 
@@ -43,10 +43,19 @@ rmdir /s /q src\misc\tools\working-dir
 del /Q src\temp
 set "module_loaded=false"
 cls
-goto boot
+goto load-settings
+
+:load-settings
+if not "%settingsloaded%"=="true" (
+  cd src/misc
+  call settings-loader.bat
+) else (
+  goto boot
+)
 
 rem Booting procedure and boot logo/art
 :boot
+set "settingsloaded=false"
 echo             ▄▄▄·▄▄▄ . ▐ ▄     • ▌ ▄ ·.       ·▄▄▄▄   ▄▄▄· ▄▄▄·  ▄▄· ▄ •▄     ▄▄▄ . ▐ ▄  ▄▄ • ▪    ·▐ ▄ ▄▄▄ .
 echo       ▄█▀▄ ▐█ ▄█▀▄.▀·•█▌▐█    ·██ ▐███▪ ▄█▀▄ ██▪ ██ ▐█ ▄█▐█ ▀█ ▐█ ▌▪█▌▄▌▪    ▀▄.▀·•█▌▐█▐█ ▀ ▪██   •█▌▐█▀▄.▀·
 echo      ▐█▌.▐▌ ██▀·▐▀▀▪▄▐█▐▐▌    ▐█ ▌▐▌▐█·▐█▌.▐▌▐█· ▐█▌ ██▀·▄█▀▀█ ██ ▄▄▐▀▀▄·    ▐▀▀▪▄▐█▐▐▌▄█ ▀█▄▐█·  ▐█▐▐▌▐▀▀▪▄
@@ -62,84 +71,68 @@ echo 2) Download modpack from OMEmodule.
 echo 3) Open OMEmodule builder (ALPHA).
 echo 4) Open OMEmodules folder.
 echo 5) Change deafult minecraft directory.
+echo 6) Settings.
 echo.
 set /p select="Option: "
 
-if %select%==1 goto 1
-if %select%==2 goto 2
-if %select%==3 goto 3
-if %select%==4 goto 4
-if %select%==5 goto 5
+if %select%==1 goto test-dl
+if %select%==2 goto m-itp
+if %select%==3 goto m-b
+if %select%==4 goto m-fol
+if %select%==5 goto c-mcd
+if %select%==6 goto stgs
 rem Restart procedure
 if %select%==r goto r
 
 rem Selection executables
 rem "exit" line between of each tag is to make sure installer.bat window is getting closed when opening other *.bat file
 
-:1
+:test-dl
 cd src/installers
 call test.bat
-exit
 
-:2
+:m-itp
 cd src/mainframe
 call module-interpreter.bat
-exit
 
-:3
+:m-b
 cd src/misc/tools
 call module-builder.bat
-exit
 
-:4
+:m-fol
 cd src/misc
 start OMEmodules
 cd ../..
 goto r
-exit
 
-:5
+:c-mcd
 cd src/misc
 call chg-mc-dir.bat
-exit
 
-rem Installing 7-Zip from GitHub
-:7zipins
-title Downloading OME files...
+:stgs
+cd src/misc
+call settings.bat
+
+:dl-src
+title Downloading OME files... & rem Installing 7-Zip from GitHub
 mkdir temp
 cd temp
 cls
 echo Downloading embeded 7-Zip...
 echo.
 curl -LJOS https://github.com/KRWCLASSIC/OpenModpackEngine/raw/master/src/misc/7zEmbeded.exe
-cls
-goto src-handler-7zipconfirmed
-
-rem Creating temp folder outside of the "src" folder (because it isnt exists yet) and downloading into it OptiPack github repo
-:src-handler-7zipconfirmed
-cls
+cls & rem Creating temp folder outside of the "src" folder (because it isnt exists yet) and downloading into it OME github repo
 echo Downloading neccessary files...
 echo.
 curl -LJO https://github.com/KRWCLASSIC/OpenModpackEngine/archive/master.zip
 "7zEmbeded.exe" x -y OpenModpackEngine-master.zip
 cls
-rem Continuing with the installation
-goto src-extract
-
-rem Moving out "src" folder out of the "temp" folder and removing unnecessary "temp" folder
-:src-extract
-cd ..
+cd .. & rem Moving out "src" folder out of the "temp" folder and removing unnecessary "temp" folder
 move /y "temp/OpenModpackEngine-master/src" .
 rd /s /q temp
-cls
-rem Restarting installer to make sure "src" folder is being detected, yes, you could just go back to the src-handler but why? lol
-goto r
+cls & rem Restarting installer to make sure "src" folder is being detected, yes, you could just go back to the src-existance-checker but why? lol
 
 rem Restart installer procedure
 :r
 call installer.bat
-exit
-
-rem Closing installer procedure
-:exit
 exit
