@@ -1,7 +1,7 @@
 @echo off
 title Main Menu
 rem "chcp 65001" allows to use non ASCII characters
-chcp 65001
+chcp 65001 >nul
 rem "cls" here clears output of chcp command that says its now using other character set
 cls
 
@@ -10,7 +10,7 @@ set "ver=a0.0.6"
 set "OMEm-ver-validator=1"& rem check "Module Version Override.txt" file
 
 rem Set "select" variable to "r" to make sure installer.bat doesnt crash when nothing is inputted on fresh boot
-set "select=r"
+set "ins-select=r"
 
 rem Handler for downloading modules, if you making own version of this installer make git repo with your own /src folder and include your mods
 :src-existance-checker
@@ -38,11 +38,12 @@ if exist "src/temp" (
 cls
 
 :clean
-rmdir /s /q src\mainframe\cache
-rmdir /s /q src\misc\tools\working-dir
-del /Q src\temp
+rem "2>nul" Redirects output and ERRORS to "nul" device when ">nul" refirects just output, thats why its used here
+rem Also why i redirect errors when its gonna be cleared anyways? Slow PC's and high Hz monitors still may display errors so cls isn't enough
+rmdir /s /q src\mainframe\cache 2>nul
+rmdir /s /q src\misc\tools\working-dir 2>nul
+del /Q src\temp 2>nul
 set "module_loaded=false"
-cls
 goto load-settings
 
 :load-settings
@@ -55,6 +56,7 @@ if not "%settingsloaded%"=="true" (
 
 rem Booting procedure and boot logo/art
 :boot
+cls
 set "settingsloaded=false"
 echo             ▄▄▄·▄▄▄ . ▐ ▄     • ▌ ▄ ·.       ·▄▄▄▄   ▄▄▄· ▄▄▄·  ▄▄· ▄ •▄     ▄▄▄ . ▐ ▄  ▄▄ • ▪    ·▐ ▄ ▄▄▄ .
 echo       ▄█▀▄ ▐█ ▄█▀▄.▀·•█▌▐█    ·██ ▐███▪ ▄█▀▄ ██▪ ██ ▐█ ▄█▐█ ▀█ ▐█ ▌▪█▌▄▌▪    ▀▄.▀·•█▌▐█▐█ ▀ ▪██   •█▌▐█▀▄.▀·
@@ -73,16 +75,22 @@ echo 4) Open OMEmodules folder.
 echo 5) Change deafult minecraft directory.
 echo 6) Settings.
 echo.
-set /p select="Option: "
+set /p ins-select="Option: "
 
-if %select%==1 goto test-dl
-if %select%==2 goto m-itp
-if %select%==3 goto m-b
-if %select%==4 goto m-fol
-if %select%==5 goto c-mcd
-if %select%==6 goto stgs
-rem Restart procedure
-if %select%==r goto r
+rem Making sure you cant break installer.bat no matter what
+set "valid_options=123456r0"
+if "%ins-select%"==" " goto r
+echo %valid_options% | findstr /C:"%ins-select%" >nul || goto r 2>nul
+
+if %ins-select%==1 goto test-dl
+if %ins-select%==2 goto m-itp
+if %ins-select%==3 goto m-b
+if %ins-select%==4 goto m-fol
+if %ins-select%==5 goto c-mcd
+if %ins-select%==6 goto stgs
+if %ins-select%==r goto r
+if %ins-select%==0 exit
+goto r
 
 rem Selection executables
 rem "exit" line between of each tag is to make sure installer.bat window is getting closed when opening other *.bat file

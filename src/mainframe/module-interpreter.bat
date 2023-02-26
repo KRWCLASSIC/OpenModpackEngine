@@ -42,6 +42,7 @@ rem Passing wanted module name to other variable
 echo.
 echo 0) Back
 echo.
+set "select=0"
 set /p select="Option nr.: "
 set /a index=select
 call set "selected_module=%%module_%index%%%"
@@ -56,7 +57,7 @@ mkdir cache
 cd ..
 cls
 
-if %select%== 0 (
+if %select% == 0 (
     cd ..
     call installer.bat
 )

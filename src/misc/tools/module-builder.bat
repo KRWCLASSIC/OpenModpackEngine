@@ -33,6 +33,8 @@ set /p modpackdesc="Modpack description: "
 set /p modslink="Link to mods download: "
 echo.
 
+if "%filename%"==" " set "filename=unnamed"
+
 rem Putting given info in OMEmodule
 echo chcp 65001 >"%filename%.OMEmodule"
 echo @echo off >>"%filename%.OMEmodule"
