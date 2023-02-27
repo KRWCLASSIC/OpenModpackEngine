@@ -25,10 +25,9 @@ goto back
 call chg-mc-dir.bat
 
 :OMEupdate
-cls
-echo OME update system isn't implemented yet!
-timeout 2 >nul
-goto start
+cd tools
+call update-handler.bat
+goto back
 
 :OMEmods
 cls

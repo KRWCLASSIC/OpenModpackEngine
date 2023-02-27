@@ -6,6 +6,8 @@ OpenModpackEngine is batch script for installing, managing and distributing modp
 
 As for now you only need to download and execute "installer.bat". This will download all requied files and apps (7-Zip included)
 
+If you encounter bug that makes installer.bat crash without a reason, copy entire code to new .txt file, save and change extension to .bat or change line break type from LF to CRLF (Using tools like notepad++ in the bottom part of the window)
+
 # Updating
 
 As for now you need to remove entire program and reinstall it from github, updating mechanism will be added in beta, OME is now in alpha stage so fresh installing is better to remove potential bugs
