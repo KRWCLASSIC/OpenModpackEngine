@@ -1,4 +1,4 @@
-
+rem Welcome to OpenModpackEngine
 @echo off
 title Main Menu
 rem "chcp 65001" allows to use non ASCII characters
