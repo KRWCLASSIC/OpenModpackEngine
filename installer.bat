@@ -41,9 +41,10 @@ cls
 :clean
 rem "2>nul" Redirects output and ERRORS to "nul" device when ">nul" refirects just output, thats why its used here
 rem Also why i redirect errors when its gonna be cleared anyways? Slow PC's and high Hz monitors still may display errors so cls isn't enough
-rmdir /s /q src\mainframe\cache 2>nul
-rmdir /s /q src\misc\tools\working-dir 2>nul
-del /Q src\temp 2>nul
+rmdir /s /q "src\mainframe\cache" 2>nul
+rmdir /s /q "src\misc\tools\working-dir" 2>nul
+rmdir /s /q "src\temp\OMEmodule-Import-Folder" 2>nul
+del /Q "src\temp" 2>nul
 set "module_loaded=false"
 goto load-settings
 

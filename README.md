@@ -16,6 +16,13 @@ As for now you need to remove entire program and reinstall it from github (Or us
 
 When full version will be released i have plans to add modding feature, basicly you can make OME use modified version of my scripts. This could be used to add new features i dont want to add or just for customization reasons (e.g. Modified installer.bat that changes font color for entire "app")
 
+# Adding OMEmodules
+
+Now there are 2 ways of doing this:
+
+1) Main Menu -> Settings -> Import OMEmodules. (Mostly automated)
+2) Main Menu -> Open OMEmodules folder. (Mostly manual)
+
 # FAQ (F = May get, lmao)
 
 - Is it safe? -

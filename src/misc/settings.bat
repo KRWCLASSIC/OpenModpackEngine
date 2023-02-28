@@ -44,10 +44,9 @@ timeout 2 >nul
 goto start
 
 :ImOMEm
-cls
-echo Importing OMEmodules isn't implemented yet!
-timeout 2 >nul
-goto start
+cd tools
+call module-importer.bat
+goto back
 
 :back
 cd ../..
