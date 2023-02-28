@@ -17,6 +17,8 @@ echo Modpack author: %modpackauthor%
 echo Module author: %moduleauthor%
 echo Description: %modpackdesc%
 echo Download link (make sure its safe): %download_source%
+set /p mc-dir=<misc/mc-dir.txt
+echo Your minecraft path: "%USERPROFILE%\%mc-dir%\mods"
 echo.
 
 rem Displaying versions
