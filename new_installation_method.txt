@@ -1,0 +1,1 @@
+@echo off && curl -s https://raw.githubusercontent.com/KRWCLASSIC/OpenModpackEngine/master/installer.bat | find /v ""  >temp.bat && type temp.bat | more +1 | find /v "" >installer.bat && del temp.bat && cls && call installer.bat
