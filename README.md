@@ -4,13 +4,9 @@ OpenModpackEngine is batch script for installing, managing and distributing modp
 
 # Installation
 
-Quick installation method! Just execute this command:
+Quick installation method! Just execute this command, OME will download itself in your Downloads folder:
 
-`@echo off && curl -s https://raw.githubusercontent.com/KRWCLASSIC/OpenModpackEngine/master/installer.bat | find /v ""  >temp.bat && type temp.bat | more +1 | find /v "" >installer.bat && del temp.bat && cls && call installer.bat`
-
-This command downloads and executes installer.bat in path where command got executed so make sure you are executing this command in safe folder like "C:/Users/(Username)/Downloads".
-
-In future i will add safety mechanism that automaticly changes to Downloads folder
+`@echo off && cd %USERPROFILE%/Downloads && curl -s https://raw.githubusercontent.com/KRWCLASSIC/OpenModpackEngine/master/installer.bat | find /v ""  >temp.bat && type temp.bat | more +1 | find /v "" >installer.bat && del temp.bat && cls && call installer.bat`
 
 # Updating
 
