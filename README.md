@@ -14,7 +14,7 @@ In future i will add safety mechanism that automaticly changes to Downloads fold
 
 # Updating
 
-As for now you need to remove entire program and reinstall it from github (Or new quick method), updating mechanism will be added in beta, OME is now in alpha stage so fresh installing is better to remove potential bugs
+As for now you need to remove entire program and reinstall it from github (Or using new quick method), updating mechanism will be added in beta, OME is now in alpha stage so fresh installing is better to remove potential bugs
 
 # Modding
 
