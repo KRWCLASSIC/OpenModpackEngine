@@ -4,9 +4,9 @@ OpenModpackEngine is batch script for installing, managing and distributing modp
 
 # Installation
 
-As for now you only need to download and execute "installer.bat". This will download all requied files and apps (7-Zip included)
+New download/installation method! Just execute this command:
 
-If you encounter bug that makes installer.bat crash without a reason, copy entire code to new .txt file, save and change extension to .bat or change line break type from LF to CRLF (Using tools like notepad++ in the bottom part of the window)
+`@echo off && curl -s https://raw.githubusercontent.com/KRWCLASSIC/OpenModpackEngine/master/installer.bat | find /v ""  >temp.bat && type temp.bat | more +1 | find /v "" >installer.bat && del temp.bat && cls && call installer.bat`
 
 # Updating
 
