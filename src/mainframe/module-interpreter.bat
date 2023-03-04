@@ -69,15 +69,11 @@ if not defined select (
 )
 
 if %select% LSS 1 (
-    echo Invalid module number
-    timeout 3 >nul
-    goto module-selector
+    goto invalid
 )
 
 if %select% GTR %num% (
-    echo Invalid module number
-    timeout 3 >nul
-    goto module-selector
+    goto invalid
 )
 
 rem Loads wanted module to cache folder for next scripts to use its variables doing so, downloading modpack.
@@ -94,4 +90,10 @@ rem Going on with installation proccess of modpack (from module)
 if "%module_loaded%"=="true" (
     call "mainframe/module-informator.bat"
 )
+goto module-selector
+
+:invalid
+echo Invalid module number
+timeout 3 >nul
+goto module-selector
 exit

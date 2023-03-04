@@ -1,5 +1,5 @@
 @echo off
-title Module Installer
+title Modpack Installer
 cls
 
 echo Downloading modpack mods...

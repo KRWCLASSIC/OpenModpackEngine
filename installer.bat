@@ -78,6 +78,8 @@ echo 4) Open OMEmodules folder.
 echo 5) Settings.
 echo 6) About.
 echo.
+echo 0) Exit
+echo.
 set /p ins-select="Option: "
 
 rem Making sure you cant break installer.bat no matter what
