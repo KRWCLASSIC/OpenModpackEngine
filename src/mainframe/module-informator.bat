@@ -16,9 +16,12 @@ echo Modpack version: %ver%
 echo Modpack author: %modpackauthor%
 echo Module author: %moduleauthor%
 echo Description: %modpackdesc%
-echo Download link (make sure its safe): %download_source%
+echo Mods download link (make sure its safe): %download_source%
+if defined config_addition_download_source echo Configs download link: %config_addition_download_source% (Not installed in current version)
+if defined texturepack_addition_download_source echo Texturepack download link: %texturepack_addition_download_source% (Not installed in current version)
+if defined world_addition_download_source echo World download link: %world_addition_download_source% (Not installed in current version)
 set /p mc-dir=<misc/mc-dir.txt
-echo Your installation path (If it's incorrect go to settings): "%USERPROFILE%\%mc-dir%\mods"
+echo Your minecraft folder (If it's incorrect go to settings): "%USERPROFILE%\%mc-dir%"
 echo.
 
 rem Displaying versions

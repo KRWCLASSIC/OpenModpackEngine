@@ -7,8 +7,8 @@ rem "cls" here clears output of chcp command that says its now using other chara
 cls
 
 rem Version variables
-set "ver=a0.0.8"
-set "OMEm-ver-validator=1"& rem check "Module Version Override.txt" file
+set "ver=a0.0.8.1"
+set "OMEm-ver-validator=2"& rem check "Module Version Override.txt" file
 
 rem Set "select" variable to "r" to make sure installer.bat doesnt crash when nothing is inputted on fresh boot
 set "ins-select=r"
@@ -46,6 +46,9 @@ rmdir /s /q "src\misc\tools\working-dir" 2>nul
 rmdir /s /q "src\temp\OMEmodule-Import-Folder" 2>nul
 del /Q "src\temp" 2>nul
 set "module_loaded=false"
+if not exist "src\misc\OMEmodules" (
+    mkdir "src\misc\OMEmodules"
+)
 goto load-settings
 
 :load-settings

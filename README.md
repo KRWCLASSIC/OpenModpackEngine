@@ -1,6 +1,6 @@
 # OpenModpackEngine
 
-OpenModpackEngine is a batch script to install, manage and distribute minecraft modpacks without the need for external/closed source applications/sites like CurseForge.
+OpenModpackEngine is a lightweight batch script to install, manage and distribute minecraft modpacks without the need for external/closed source applications/sites like CurseForge.
 
 # Installation
 

@@ -19,7 +19,7 @@ if "%module_loaded%"=="true" (
 )
 
 rem Analyzing and displaying modules
-cd misc/OMEmodules
+cd "misc\OMEmodules"
 echo Modules found:&                rem I found new way of adding comments :O
                                     rem Main loop and checking if there is any module
 for %%i in (*.OMEmodule) do (

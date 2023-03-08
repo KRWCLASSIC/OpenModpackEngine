@@ -5,6 +5,14 @@ rem This file is executed when any of the *-src.bat files finishes its work, thi
 rem Load minecraft path to a post-init.bat to finish installing procedure
 set /p mc-dir=<misc/mc-dir.txt
 
+if "%archivesystem%"=="true" (
+  goto backup
+) else (
+  goto skipbp
+)
+goto back
+
+:backup
 rem Saving downloaded mods from combining with mods in ".minecraft/mods" procedure, basicly checks if there is any *.jar file in mods dir, if there is archive it in a folder
 rem loop that adds 1 to the %num% variable if there is Archive folder with that number
 set "num=0"
@@ -26,6 +34,7 @@ if exist "%USERPROFILE%\%mc-dir%\mods\Archive%num%\*.jar" (
 timeout 5 >nul
 cls
 
+:skipbp
 rem Unzipping modpack
 for %%f in (temp/OMEmods.zip) do (
   rem Extract the current file using embeded 7-Zip
@@ -49,6 +58,7 @@ cls
 echo Moving mods completed!
 timeout 3 >nul
 
+:back
 rem Going back to main menu
 cd ../..
 call installer.bat
