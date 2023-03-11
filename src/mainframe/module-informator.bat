@@ -78,6 +78,7 @@ rem Installing mods from selected before OMEmodule
 call mainframe/module-installer.bat
 exit
 
+rem Going back to the installer
 :n
 cd ..
 call installer.bat

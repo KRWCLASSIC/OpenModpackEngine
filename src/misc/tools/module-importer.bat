@@ -2,6 +2,8 @@
 title Module Importer
 cls
 
+rem This is too simple to even explain lmao
+
 echo In 3 seconds folder will open up, put there your *.OMEmodule files and if they all are in - Press enter to continue
 timeout 3 >nul
 cd ../..

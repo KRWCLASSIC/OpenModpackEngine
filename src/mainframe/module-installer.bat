@@ -2,7 +2,7 @@
 title Modpack Installer
 cls
 
-
+rem Main part of the installer - Downloading mods from link contained in the variable set by OMEmodule
 echo Downloading modpack mods...
 echo.
 cd temp
@@ -13,6 +13,7 @@ ren *.zip OMEmods.zip
 move OMEmods.zip ..
 cls
 
+rem Additions work almost the same as mods installation proccess but only when they exist
 echo Downloading modpack additions...
 echo.
 if defined texturepack_addition_download_source echo - Texturepacks:
@@ -39,6 +40,7 @@ if defined world_addition_download_source ren *.zip OMEworlds.zip
 if defined world_addition_download_source move OMEworlds.zip .. 2>nul
 if defined world_addition_download_source echo.
 
+rem Downloading forced modloader set by OMEmodule
 if defined forcedmodloaderlink echo Downloading modloader used by modpack...
 if defined forcedmodloaderlink rem curl -LJO "%forcedmodloaderlink%"
 cls

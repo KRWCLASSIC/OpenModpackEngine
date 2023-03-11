@@ -1,10 +1,10 @@
 @echo off
 title Post Initialization
-rem This file is executed when any of the *-src.bat files finishes its work, this script moves all mods to your minecraft directory
 
 rem Load minecraft path to a post-init.bat to finish installing procedure
 set /p mc-dir=<misc/mc-dir.txt
 
+rem Backup or not
 if "%archivesystem%"=="true" (
   goto backup
 ) else (
@@ -116,12 +116,12 @@ if exist "temp/OMEworlds.zip" (
   timeout 3 >nul
   cls
   
-  rem Moving texturepacks procedure
+  rem Moving worlds procedure
   rem Iterate through all *.zip files in the temp/worlds directory
   cd temp/worlds
   echo Moving worlds...
   for /D %%f in (*) do (
-    rem Move the current texturepack file to the Minecraft saves directory
+    rem Move the current world file to the Minecraft saves directory
     move /y "%%f" "%USERPROFILE%\%mc-dir%\saves" 2>nul
   )
   cd ../..
@@ -179,7 +179,7 @@ if exist "temp/OMEsettings.zip" (
   cls
   
   rem Moving configs procedure
-  rem Iterate through all *.zip files in the temp/settings directory
+  rem Iterate through all *.txt files in the temp/settings directory
   cd temp/settings
   echo Moving settings...
   for %%f in (*.txt) do (

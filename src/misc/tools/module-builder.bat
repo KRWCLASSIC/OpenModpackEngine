@@ -37,6 +37,7 @@ set /p modslink="Link to mods download: "
 echo.
 echo ### Available Modloaders: Fg - Forge, Fb - Fabric, Q - Quilt, R - Rift, O - Other, WARNING^^! CASE SENSITIVE^^! ###
 set /p modloadername="Modloader: "
+rem Selection ladder of wanted modloader
 if "%modloadername%"=="Fg" (
     set "modloadername=Forge"
 ) else (
@@ -64,7 +65,7 @@ if "%forcedmodloader%"=="y" (
     echo Example of correctly zipped modloader: [1.15.2-forge-31.2.46.zip] -^> 1.15.2-forge-31.2.46 -^> (modloader .jar and .json files^)
     set /p forcedmodloaderlink="Modloader link (Zipped version folder): "
 ) else (
-    if "%addascii%"=="n" (
+    if "%forcedmodloader%"=="n" (
         rem Go on
     ) else (
         rem Go on
@@ -100,6 +101,7 @@ if "%addascii%"=="y" (
     )
 )
 
+rem Adding ascii art to the OMEmodule
 :addasciiproc
 echo.>ascii.txt
 echo Paste and save your ASCII art in text file that opened right now, press enter if you've done that.
@@ -115,6 +117,7 @@ for /l %%i in (1, 1, %ASCII-lines%) do (
   echo echo !ASCII%%i! ^>^>mainframe/cache/ASCII.txt >>"%filename%.OMEmodule"
 )
 
+rem Adding additions to the OMEmodule
 :addaddit
 if "%addaddidtion%"=="y" (
     goto addaddidtionproc
