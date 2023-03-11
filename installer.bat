@@ -46,6 +46,7 @@ rmdir /s /q "src\misc\tools\working-dir" 2>nul
 rmdir /s /q "src\temp\OMEmodule-Import-Folder" 2>nul
 rmdir /s /q "src\temp\downloading" 2>nul
 rmdir /s /q "src\temp\txtpacks" 2>nul
+rmdir /s /q "src\temp\worlds" 2>nul
 del /Q "src\temp" 2>nul
 set "module_loaded=false"
 if not exist "src\misc\OMEmodules" (
