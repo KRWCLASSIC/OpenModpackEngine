@@ -16,12 +16,14 @@ echo                                                                        __
 echo                                            (\,------------------------'()'--o
 echo                                             (_    _OMEmodule Builder_    /~" 
 echo                                              (_)_)                  (_)_)    
-echo                                                 Version "AZA%OMEm-ver-validator%EL Soulstealer"
+echo                                                 Version "Blood R%OMEm-ver-validator%aper"
 echo.
 
 rem Asking user if (s)he wants to add ASCII art
 set /p addascii="Do you want to add ASCII art? (y/n): "
 set /p addaddidtion="Do you want to add additions (Configs, Texturepack, World etc.)? (y/n): "
+set /p forcedmodloader="Do you want to provide user with exact modloader and version? (Requied link for zipped folder from "version" folder) (y/n): "
+echo.
 
 rem Giving info what to put in the OMEmodule
 set "filename=unnamed"
@@ -32,6 +34,42 @@ set /p modpackauthor="Modpack author: "
 set /p moduleauthor="Module author: "
 set /p modpackdesc="Modpack description: "
 set /p modslink="Link to mods download: "
+echo.
+echo ### Available Modloaders: Fg - Forge, Fb - Fabric, Q - Quilt, R - Rift, O - Other, WARNING^^! CASE SENSITIVE^^! ###
+set /p modloadername="Modloader: "
+if "%modloadername%"=="Fg" (
+    set "modloadername=Forge"
+) else (
+    if "%modloadername%"=="Fb" (
+    set "modloadername=Fabric"
+    ) else (
+        if "%modloadername%"=="Q" (
+        set "modloadername=Quilt"
+        ) else (
+            if "%modloadername%"=="R" (
+            set "modloadername=Rift"
+            ) else (
+                if "%modloadername%"=="O" (
+                set "modloadername=Other"
+                ) else (
+                    set "modloadername=Unspecified"
+                )
+            )
+        )
+    )
+)
+set /p modloaderver="Modloader version (No need to input): "
+
+if "%forcedmodloader%"=="y" (
+    echo Example of correctly zipped modloader: [1.15.2-forge-31.2.46.zip] -^> 1.15.2-forge-31.2.46 -^> (modloader .jar and .json files^)
+    set /p forcedmodloaderlink="Modloader link (Zipped version folder): "
+) else (
+    if "%addascii%"=="n" (
+        rem Go on
+    ) else (
+        rem Go on
+    )
+)
 echo.
 
 if "%filename%"==" " set "filename=unnamed"
@@ -46,6 +84,9 @@ echo set "name=%modpackname%" >>"%filename%.OMEmodule"
 echo set "ver=%modpackver%" >>"%filename%.OMEmodule"
 echo set "modpackauthor=%modpackauthor%" >>"%filename%.OMEmodule"
 echo set "moduleauthor=%moduleauthor%" >>"%filename%.OMEmodule"
+echo set "modloadername=%modloadername%" >>"%filename%.OMEmodule"
+echo set "modloaderver=%modloaderver%" >>"%filename%.OMEmodule"
+echo set "forcedmodloaderlink=%forcedmodloaderlink%" >>"%filename%.OMEmodule"
 echo set "modpackdesc=%modpackdesc%" >>"%filename%.OMEmodule"
 echo set "download_source=%modslink%" >>"%filename%.OMEmodule"
 
@@ -96,14 +137,9 @@ echo 0) To go back.
 echo.
 
 :aa-settings
-rem Adding options.txt
 set /p aa-settings="Do you want to add settings file (options.txt)? (y/n): "
 if "%aa-settings%"=="y" (
-    echo Settings addition currently unsupported :/
-    rem echo.>options.txt
-    rem echo Paste and save your config.txt contents in text file that will open in 3 seconds, press enter if you've done that.
-    rem timeout 3 >nul
-    rem notepad options.txt
+    set /p aa-settings-link="Link to options.txt file: "
 ) else (
     if "%aa-settings%"=="n" (
         goto aa-configs
@@ -116,7 +152,6 @@ if "%aa-settings%"=="y" (
 set /p aa-configs="Do you want to add config files (config folder in .minecraft)? (y/n): "
 if "%aa-configs%"=="y" (
     set /p aa-config-link="Link to zipped config folder: "
-    echo set "config_addition_download_source=%aa-config-link%" >>"%filename%.OMEmodule"
 ) else (
     if "%aa-configs%"=="n" (
         goto aa-texturepacks
@@ -129,7 +164,6 @@ if "%aa-configs%"=="y" (
 set /p aa-texturepacks="Do you want to add texturepack? (y/n): "
 if "%aa-texturepacks%"=="y" (
     set /p aa-texturepack-link="Link to zipped texturepack: "
-    echo set "texturepack_addition_download_source=%aa-texturepack-link%" >>"%filename%.OMEmodule"
 ) else (
     if "%aa-texturepacks%"=="n" (
         goto aa-worlds
@@ -142,7 +176,6 @@ if "%aa-texturepacks%"=="y" (
 set /p aa-worlds="Do you want to add world (save file)? (y/n): "
 if "%aa-worlds%"=="y" (
     set /p aa-world-link="Link to zipped world: "
-    echo set "world_addition_download_source=%aa-world-link%" >>"%filename%.OMEmodule"
 ) else (
     if "%aa-worlds%"=="n" (
         goto next
@@ -150,6 +183,11 @@ if "%aa-worlds%"=="y" (
         goto next
     )
 )
+
+echo set "settings_addition_download_source=%aa-settings-link%" >>"%filename%.OMEmodule"
+echo set "config_addition_download_source=%aa-config-link%" >>"%filename%.OMEmodule"
+echo set "texturepack_addition_download_source=%aa-texturepack-link%" >>"%filename%.OMEmodule"
+echo set "world_addition_download_source=%aa-world-link%" >>"%filename%.OMEmodule"
 
 rem ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 

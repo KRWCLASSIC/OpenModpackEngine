@@ -7,8 +7,8 @@ rem "cls" here clears output of chcp command that says its now using other chara
 cls
 
 rem Version variables
-set "ver=a0.0.8.1"
-set "OMEm-ver-validator=2"& rem check "Module Version Override.txt" file
+set "ver=a0.0.8.2"
+set "OMEm-ver-validator=3"& rem check "Module Version Override.txt" file
 
 rem Set "select" variable to "r" to make sure installer.bat doesnt crash when nothing is inputted on fresh boot
 set "ins-select=r"
@@ -49,6 +49,11 @@ set "module_loaded=false"
 if not exist "src\misc\OMEmodules" (
     mkdir "src\misc\OMEmodules"
 )
+set "forcedmodloaderlink="
+set "texturepack_addition_download_source="
+set "settings_addition_download_source="
+set "config_addition_download_source="
+set "world_addition_download_source="
 goto load-settings
 
 :load-settings

@@ -15,13 +15,23 @@ echo Modpack name: %name%
 echo Modpack version: %ver%
 echo Modpack author: %modpackauthor%
 echo Module author: %moduleauthor%
+echo Modloader: %modloadername% %modloaderver%
+if defined forcedmodloaderlink (
+    echo * Forced modloader: True (%forcedmodloaderlink%^)
+) else (
+    echo Forced modloader: False
+)
 echo Description: %modpackdesc%
 echo Mods download link (make sure its safe): %download_source%
-if defined config_addition_download_source echo Configs download link: %config_addition_download_source% (Not installed in current version)
-if defined texturepack_addition_download_source echo Texturepack download link: %texturepack_addition_download_source% (Not installed in current version)
-if defined world_addition_download_source echo World download link: %world_addition_download_source% (Not installed in current version)
+if defined texturepack_addition_download_source echo * Texturepack download link: %texturepack_addition_download_source%
+if defined settings_addition_download_source echo * Settings file download link: %settings_addition_download_source%
+if defined config_addition_download_source echo * Configs download link: %config_addition_download_source%
+if defined world_addition_download_source echo * World download link: %world_addition_download_source%
 set /p mc-dir=<misc/mc-dir.txt
 echo Your minecraft folder (If it's incorrect go to settings): "%USERPROFILE%\%mc-dir%"
+echo.
+
+echo * - Not installed in current version
 echo.
 
 rem Displaying versions
@@ -34,9 +44,9 @@ if defined build-on-ome (
         echo Valid module version
     ) else (
         if "%build-on-ome%" GTR "%OMEm-ver-validator%" (
-            echo Module too new, update OpenModpackEngine! going back to main menu.
+            echo Module too new, update OpenModpackEngine! going back to main menu...
         ) else (
-            echo Module too old, update or modify OMEmodule! going back to main menu.
+            echo Module too old, update or modify OMEmodule! going back to main menu...
         )
         timeout 7 >nul
         cd ..

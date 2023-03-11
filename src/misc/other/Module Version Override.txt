@@ -4,6 +4,8 @@ Used by Alpha Versions of OME:
 0 - "Alpha0"
 1 - "Vo1d Eater" (Without ASCII support in OMEmodule builder)
 1 - "Van1lla Cream" (With ASCII support in OMEmodule builder)
-2 - "AZA2EL Soulstealer"
+2 - "AZA2EL Soulstealer" (Basic "additions" implementation)
+3 - "Blood R3aper" (Support for including own loader)
 
 Used by Beta Versions OME:
+4 - "Hell V4riation" (Not released yet)

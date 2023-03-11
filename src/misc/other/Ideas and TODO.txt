@@ -12,6 +12,8 @@
 - Support for most popular minecraft versions
 - Support for Optifine and Chisel CTM
 
+# Simpler FFMPEG
+
 # for PS3BATCHI
 - Functionality of PS3MAPI in basic script(s)
 - Multiple profiles like in Arisen Studio
