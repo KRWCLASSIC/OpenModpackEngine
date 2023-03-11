@@ -23,7 +23,7 @@ if defined forcedmodloaderlink (
 )
 echo Description: %modpackdesc%
 echo Mods download link (make sure its safe): %download_source%
-if defined texturepack_addition_download_source echo * Texturepack download link: %texturepack_addition_download_source%
+if defined texturepack_addition_download_source echo Texturepack download link: %texturepack_addition_download_source%
 if defined settings_addition_download_source echo * Settings file download link: %settings_addition_download_source%
 if defined config_addition_download_source echo * Configs download link: %config_addition_download_source%
 if defined world_addition_download_source echo * World download link: %world_addition_download_source%

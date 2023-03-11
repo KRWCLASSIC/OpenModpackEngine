@@ -21,7 +21,7 @@ echo.
 
 rem Asking user if (s)he wants to add ASCII art
 set /p addascii="Do you want to add ASCII art? (y/n): "
-set /p addaddidtion="Do you want to add additions (Configs, Texturepack, World etc.)? (y/n): "
+set /p addaddidtion="Do you want to add additions (Configs, Texturepacks, World etc.)? (y/n): "
 set /p forcedmodloader="Do you want to provide user with exact modloader and version? (Requied link for zipped folder from "version" folder) (y/n): "
 echo.
 
@@ -161,9 +161,9 @@ if "%aa-configs%"=="y" (
 )
 
 :aa-texturepacks
-set /p aa-texturepacks="Do you want to add texturepack? (y/n): "
+set /p aa-texturepacks="Do you want to add texturepacks? (y/n): "
 if "%aa-texturepacks%"=="y" (
-    set /p aa-texturepack-link="Link to zipped texturepack: "
+    set /p aa-texturepack-link="Link to zipped texturepacks (Make sure texturepack zip is in other zip): "
 ) else (
     if "%aa-texturepacks%"=="n" (
         goto aa-worlds

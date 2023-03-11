@@ -12,6 +12,7 @@ if "%archivesystem%"=="true" (
 )
 goto back
 
+rem ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 :backup
 rem Saving downloaded mods from combining with mods in ".minecraft/mods" procedure, basicly checks if there is any *.jar file in mods dir, if there is archive it in a folder
 rem loop that adds 1 to the %num% variable if there is Archive folder with that number
@@ -33,15 +34,16 @@ if exist "%USERPROFILE%\%mc-dir%\mods\Archive%num%\*.jar" (
 )
 timeout 5 >nul
 cls
-
+rem ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 :skipbp
+
 rem Unzipping modpack
 for %%f in (temp/OMEmods.zip) do (
   rem Extract the current file using embeded 7-Zip
   "%cd%\misc\7zEmbeded.exe" x -y "%%f" -o"temp" >nul
 )
 cls
-del temp\OMEmods.zip >nul
+del temp\OMEmods.zip 2>nul
 echo Modpack files extracted.
 timeout 3 >nul
 cls
@@ -57,6 +59,33 @@ for %%f in (*.jar) do (
 cls
 echo Moving mods completed!
 timeout 3 >nul
+
+rem Additions - Texturepacks
+if exist "temp/OMEtexturepacks.zip" (
+  mkdir temp/txtpacks
+  rem Unzipping texturepacks
+  for %%f in (temp/OMEtexturepacks.zip) do (
+    rem Extract the current file using embeded 7-Zip
+    "%cd%\misc\7zEmbeded.exe" x -y "%%f" -o"temp/txtpacks" >nul
+  )
+  cls
+  del temp\OMEtexturepacks.zip 2>nul
+  echo Modpack texturepacks extracted.
+  timeout 3 >nul
+  cls
+  
+  rem Moving texturepacks procedure
+  rem Iterate through all *.zip files in the temp/txtpacks directory
+  cd temp/txtpacks
+  echo Moving texturepacks...
+  for %%f in (*.zip) do (
+    rem Move the current texturepack file to the Minecraft resourcepacks directory
+    move /y "%%f" "%USERPROFILE%\%mc-dir%\resourcepacks" >nul
+  )
+  cls
+  echo Moving texturepacks completed!
+  timeout 3 >nul
+)
 
 :back
 rem Going back to main menu
