@@ -121,6 +121,38 @@ if exist "temp/OMEworlds.zip" (
   timeout 3 >nul
 )
 
+rem Additions - Configs
+if exist "temp/OMEconfigs.zip" (
+  cd temp
+  mkdir configs 2>nul
+  cd ..
+  rem Unzipping configs
+  for %%f in (temp/OMEconfigs.zip) do (
+    rem Extract the current file using embeded 7-Zip
+    "%cd%\misc\7zEmbeded.exe" x -y "%%f" -otemp/configs 2>nul
+  )
+  cls
+  del temp\OMEconfigs.zip 2>nul
+  echo Configs extracted.
+  timeout 3 >nul
+  cls
+  
+  rem Moving texturepacks procedure
+  rem Iterate through all *.zip files in the temp/configs directory
+  cd temp/configs
+  echo Moving configs...
+  for /D %%f in (*) do (
+    rem Move the current folder to the Minecraft config directory
+    xcopy /E /I /Y "%%f" "%USERPROFILE%\%mc-dir%\config\%%f" >nul
+  )
+  rem Move all files to the Minecraft config directory
+  move /y *.* "%USERPROFILE%\%mc-dir%\config" 2>nul
+  cd ../..
+  cls
+  echo Configs moved!
+  timeout 3 >nul
+)
+
 :back
 rem Going back to main menu
 cd ..

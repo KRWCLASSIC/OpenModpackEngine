@@ -151,7 +151,7 @@ if "%aa-settings%"=="y" (
 :aa-configs
 set /p aa-configs="Do you want to add config files (config folder in .minecraft)? (y/n): "
 if "%aa-configs%"=="y" (
-    set /p aa-config-link="Link to zipped config folder: "
+    set /p aa-config-link="Link to zipped configs (Make sure zip contents are configs and folders not "config" folder): "
 ) else (
     if "%aa-configs%"=="n" (
         goto aa-texturepacks

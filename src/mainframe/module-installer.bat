@@ -23,15 +23,15 @@ if defined texturepack_addition_download_source echo.
 
 if defined settings_addition_download_source echo - Settings:
 if defined settings_addition_download_source rem curl -LJO "%settings_addition_download_source%"
-if defined settings_addition_download_source
-if defined settings_addition_download_source
-if defined settings_addition_download_source
+if defined settings_addition_download_source ren *.zip OMEtexturepacks.zip
+if defined settings_addition_download_source move OMEtexturepacks.zip .. 2>nul
+if defined settings_addition_download_source echo.
 
-if defined config_addition_download_source echo - Config:
-if defined config_addition_download_source rem curl -LJO "%config_addition_download_source%"
-if defined config_addition_download_source
-if defined config_addition_download_source
-if defined config_addition_download_source
+if defined config_addition_download_source echo - Configs:
+if defined config_addition_download_source curl -LJO "%config_addition_download_source%"
+if defined config_addition_download_source ren *.zip OMEconfigs.zip
+if defined config_addition_download_source move OMEconfigs.zip .. 2>nul
+if defined config_addition_download_source echo.
 
 if defined world_addition_download_source echo - Worlds:
 if defined world_addition_download_source curl -LJO "%world_addition_download_source%"

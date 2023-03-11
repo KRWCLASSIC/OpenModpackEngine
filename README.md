@@ -10,7 +10,7 @@ Quick installation method! Just execute this command, OME will download itself i
 
 # Updating
 
-As for now you need to remove entire program and reinstall it from github (Or using new quick method), updating mechanism will be added in beta, OME is now in alpha stage so fresh installing is better to remove potential bugs
+As for now you need to remove entire program and reinstall it, updating mechanism will be added in beta, OME is now in alpha stage so fresh installing is better to remove potential issues
 
 # Adding OMEmodules
 

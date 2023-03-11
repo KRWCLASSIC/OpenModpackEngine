@@ -62,3 +62,20 @@ cd ../..
 cd
 call installer.bat
 exit
+
+rem /// JAKIS SHIT lol
+rem /// 
+rem /// @echo off
+rem /// 
+rem /// set "search=old"
+rem /// set "replace=new"
+rem /// set "textfile=text.txt"
+rem /// 
+rem /// for /f "tokens=1* delims=[]" %%a in ('find /n /v "" "%textfile%"') do (
+rem ///     set "line=%%b"
+rem ///     if defined line (
+rem ///         if "!line!"=="%search%" (echo %replace%) else (echo !line!)
+rem ///     ) else echo;
+rem /// ) > "%textfile%.new"
+rem /// 
+rem /// move /y "%textfile%.new" "%textfile%"
