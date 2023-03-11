@@ -32,7 +32,7 @@ if exist "%USERPROFILE%\%mc-dir%\mods\Archive%num%\*.jar" (
   echo No previously installed mods found. Starting mods extraction procedure!
   rd /s /q "%USERPROFILE%\%mc-dir%\mods\Archive%num%"
 )
-timeout 5 >nul
+timeout 3 >nul
 cls
 rem ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 :skipbp
@@ -44,7 +44,7 @@ for %%f in (temp/OMEmods.zip) do (
 )
 cls
 del temp\OMEmods.zip 2>nul
-echo Modpack files extracted.
+echo Mods extracted.
 timeout 3 >nul
 cls
 
@@ -57,20 +57,23 @@ for %%f in (*.jar) do (
   move /y "%%f" "%USERPROFILE%\%mc-dir%\mods" >nul
 )
 cls
-echo Moving mods completed!
+echo Mods moved!
 timeout 3 >nul
 
 rem Additions - Texturepacks
+cd ..
 if exist "temp/OMEtexturepacks.zip" (
-  mkdir temp/txtpacks
+  cd temp
+  mkdir txtpacks 2>nul
+  cd ..
   rem Unzipping texturepacks
   for %%f in (temp/OMEtexturepacks.zip) do (
     rem Extract the current file using embeded 7-Zip
-    "%cd%\misc\7zEmbeded.exe" x -y "%%f" -o"temp/txtpacks" >nul
+    "%cd%\misc\7zEmbeded.exe" x -y "%%f" -otemp/txtpacks 2>nul
   )
   cls
   del temp\OMEtexturepacks.zip 2>nul
-  echo Modpack texturepacks extracted.
+  echo Texturepacks extracted.
   timeout 3 >nul
   cls
   
@@ -80,14 +83,45 @@ if exist "temp/OMEtexturepacks.zip" (
   echo Moving texturepacks...
   for %%f in (*.zip) do (
     rem Move the current texturepack file to the Minecraft resourcepacks directory
-    move /y "%%f" "%USERPROFILE%\%mc-dir%\resourcepacks" >nul
+    move /y "%%f" "%USERPROFILE%\%mc-dir%\resourcepacks" 2>nul
+  )
+  cd ../..
+  cls
+  echo Texturepacks moved!
+  timeout 3 >nul
+)
+
+rem Additions - Worlds
+if exist "temp/OMEworlds.zip" (
+  cd temp
+  mkdir worlds 2>nul
+  cd ..
+  rem Unzipping worlds
+  for %%f in (temp/OMEworlds.zip) do (
+    rem Extract the current file using embeded 7-Zip
+    "%cd%\misc\7zEmbeded.exe" x -y "%%f" -otemp/worlds 2>nul
   )
   cls
-  echo Moving texturepacks completed!
+  del temp\OMEworlds.zip 2>nul
+  echo Worlds extracted.
+  timeout 3 >nul
+  cls
+  
+  rem Moving texturepacks procedure
+  rem Iterate through all *.zip files in the temp/worlds directory
+  cd temp/worlds
+  echo Moving worlds...
+  for /D %%f in (*) do (
+    rem Move the current texturepack file to the Minecraft saves directory
+    move /y "%%f" "%USERPROFILE%\%mc-dir%\saves" 2>nul
+  )
+  cd ../..
+  cls
+  echo Worlds moved!
   timeout 3 >nul
 )
 
 :back
 rem Going back to main menu
-cd ../..
+cd ..
 call installer.bat

@@ -21,7 +21,7 @@ echo.
 
 rem Asking user if (s)he wants to add ASCII art
 set /p addascii="Do you want to add ASCII art? (y/n): "
-set /p addaddidtion="Do you want to add additions (Configs, Texturepacks, World etc.)? (y/n): "
+set /p addaddidtion="Do you want to add additions (Configs, Texturepacks, Worlds etc.)? (y/n): "
 set /p forcedmodloader="Do you want to provide user with exact modloader and version? (Requied link for zipped folder from "version" folder) (y/n): "
 echo.
 
@@ -163,7 +163,7 @@ if "%aa-configs%"=="y" (
 :aa-texturepacks
 set /p aa-texturepacks="Do you want to add texturepacks? (y/n): "
 if "%aa-texturepacks%"=="y" (
-    set /p aa-texturepack-link="Link to zipped texturepacks (Make sure texturepack zip is in other zip): "
+    set /p aa-texturepack-link="Link to zipped texturepacks (Make sure texturepacks zip's are in other zip): "
 ) else (
     if "%aa-texturepacks%"=="n" (
         goto aa-worlds
@@ -173,17 +173,18 @@ if "%aa-texturepacks%"=="y" (
 )
 
 :aa-worlds
-set /p aa-worlds="Do you want to add world (save file)? (y/n): "
+set /p aa-worlds="Do you want to add worlds (Make sure all worlds are zipped)? (y/n): "
 if "%aa-worlds%"=="y" (
     set /p aa-world-link="Link to zipped world: "
 ) else (
     if "%aa-worlds%"=="n" (
-        goto next
+        goto set-aa
     ) else (
-        goto next
+        goto set-aa
     )
 )
 
+:set-aa
 echo set "settings_addition_download_source=%aa-settings-link%" >>"%filename%.OMEmodule"
 echo set "config_addition_download_source=%aa-config-link%" >>"%filename%.OMEmodule"
 echo set "texturepack_addition_download_source=%aa-texturepack-link%" >>"%filename%.OMEmodule"

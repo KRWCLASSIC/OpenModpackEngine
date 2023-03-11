@@ -22,16 +22,15 @@ if defined forcedmodloaderlink (
     echo Forced modloader: False
 )
 echo Description: %modpackdesc%
-echo Mods download link (make sure its safe): %download_source%
-if defined texturepack_addition_download_source echo Texturepack download link: %texturepack_addition_download_source%
-if defined settings_addition_download_source echo * Settings file download link: %settings_addition_download_source%
-if defined config_addition_download_source echo * Configs download link: %config_addition_download_source%
-if defined world_addition_download_source echo * World download link: %world_addition_download_source%
+echo.
+echo Mods download link:                        %download_source%
+if defined texturepack_addition_download_source echo Texturepacks download link:                %texturepack_addition_download_source%
+if defined settings_addition_download_source echo * Settings file download link:             %settings_addition_download_source%
+if defined config_addition_download_source echo * Configs download link:                   %config_addition_download_source%
+if defined world_addition_download_source echo Worlds download link:                      %world_addition_download_source%
+echo.
 set /p mc-dir=<misc/mc-dir.txt
 echo Your minecraft folder (If it's incorrect go to settings): "%USERPROFILE%\%mc-dir%"
-echo.
-
-echo * - Not installed in current version
 echo.
 
 rem Displaying versions
