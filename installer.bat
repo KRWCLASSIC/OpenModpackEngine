@@ -7,7 +7,7 @@ rem "cls" here clears output of chcp command that says its now using other chara
 cls
 
 rem Version variables
-set "ver=a0.0.9.1"
+set "ver=a0.0.10"
 set "OMEm-ver-validator=3"& rem check "Module Version Override.txt" file
 
 rem Set "select" variable to "r" to make sure installer.bat doesnt crash when nothing is inputted on fresh boot
@@ -39,7 +39,7 @@ if exist "src/temp" (
 cls
 
 :clean
-rem "2>nul" Redirects output and ERRORS to "nul" device when ">nul" refirects just output, thats why its used here
+rem "2>nul" Redirects output and ERRORS to "nul" device when ">nul" redirects just output, thats why its used here
 rem Also why i redirect errors when its gonna be cleared anyways? Slow PC's and high Hz monitors still may display errors so cls isn't enough
 rmdir /s /q "src\mainframe\cache" 2>nul
 rmdir /s /q "src\misc\tools\working-dir" 2>nul
@@ -48,6 +48,7 @@ rmdir /s /q "src\temp\downloading" 2>nul
 rmdir /s /q "src\temp\txtpacks" 2>nul
 rmdir /s /q "src\temp\worlds" 2>nul
 rmdir /s /q "src\temp\configs" 2>nul
+rmdir /s /q "src\temp\settings" 2>nul
 del /Q "src\temp" 2>nul
 set "module_loaded=false"
 if not exist "src\misc\OMEmodules" (

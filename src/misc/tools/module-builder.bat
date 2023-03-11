@@ -139,7 +139,7 @@ echo.
 :aa-settings
 set /p aa-settings="Do you want to add settings file (options.txt)? (y/n): "
 if "%aa-settings%"=="y" (
-    set /p aa-settings-link="Link to options.txt file: "
+    set /p aa-settings-link="Link to zipped options.txt file (You can include all sorts of options, like optifine's "optionsof.txt"): "
 ) else (
     if "%aa-settings%"=="n" (
         goto aa-configs

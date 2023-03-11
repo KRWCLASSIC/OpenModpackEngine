@@ -32,6 +32,15 @@ if exist "%USERPROFILE%\%mc-dir%\mods\Archive%num%\*.jar" (
   echo No previously installed mods found. Starting mods extraction procedure!
   rd /s /q "%USERPROFILE%\%mc-dir%\mods\Archive%num%"
 )
+
+rem Backup config folder
+set "num=0"
+:checkloop2
+set /a num+=1
+if exist "%USERPROFILE%\%mc-dir%\config-backup-%num%" goto checkloop2
+if defined config_addition_download_source ren "%USERPROFILE%\%mc-dir%\config" "config-backup-%num%" >nul 2>nul
+mkdir "%USERPROFILE%\%mc-dir%\config" >nul 2>nul
+
 timeout 3 >nul
 cls
 rem ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -137,19 +146,49 @@ if exist "temp/OMEconfigs.zip" (
   timeout 3 >nul
   cls
   
-  rem Moving texturepacks procedure
+  rem Moving configs procedure
   rem Iterate through all *.zip files in the temp/configs directory
   cd temp/configs
   echo Moving configs...
   for /D %%f in (*) do (
     rem Move the current folder to the Minecraft config directory
-    xcopy /E /I /Y "%%f" "%USERPROFILE%\%mc-dir%\config\%%f" >nul
+    xcopy /E /I /Y /Q "%%f" "%USERPROFILE%\%mc-dir%\config\%%f" >nul 2>nul
   )
   rem Move all files to the Minecraft config directory
-  move /y *.* "%USERPROFILE%\%mc-dir%\config" 2>nul
+  move /y *.* "%USERPROFILE%\%mc-dir%\config" >nul 2>nul
   cd ../..
   cls
   echo Configs moved!
+  timeout 3 >nul
+)
+
+rem Additions - Settings
+if exist "temp/OMEsettings.zip" (
+  cd temp
+  mkdir settings 2>nul
+  cd ..
+  rem Unzipping settings
+  for %%f in (temp/OMEsettings.zip) do (
+    rem Extract the current file using embeded 7-Zip
+    "%cd%\misc\7zEmbeded.exe" x -y "%%f" -otemp/settings 2>nul
+  )
+  cls
+  del temp\OMEsettings.zip 2>nul
+  echo Configs extracted.
+  timeout 3 >nul
+  cls
+  
+  rem Moving configs procedure
+  rem Iterate through all *.zip files in the temp/settings directory
+  cd temp/settings
+  echo Moving settings...
+  for %%f in (*.txt) do (
+    rem Move the current folder to the Minecraft config directory
+    move /y "%%f" "%USERPROFILE%\%mc-dir%" 2>nul
+  )
+  cd ../..
+  cls
+  echo Settings moved!
   timeout 3 >nul
 )
 
