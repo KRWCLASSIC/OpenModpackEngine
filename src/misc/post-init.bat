@@ -89,12 +89,9 @@ if exist "temp/OMEcrystalinstance.zip" (
   rem Iterate through all folders in the temp/crystal directory
   cd temp/crystal
   echo Moving crystal instance files...
-  for /D %%f in (*) do (
-    rem Move the current folder to the Minecraft config directory
-    xcopy /E /I /Y /Q "%%f" "%USERPROFILE%\%mc-dir%\%%f" >nul 2>nul
+  for /D %%G in ("*") do (
+    move /Y "%%G" "%USERPROFILE%\%mc-dir%\" >nul 2>nul
   )
-  rem Move all files to the Minecraft config directory
-  move /y *.* "%USERPROFILE%\%mc-dir%" >nul 2>nul
   cd ../..
   cls
   echo Crystal instance moved!
