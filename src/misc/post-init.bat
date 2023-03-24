@@ -68,6 +68,7 @@ for %%f in (*.jar) do (
 cls
 echo Mods moved!
 timeout 3 >nul
+cd ..
 
 rem Crystal BETA
 if exist "temp/OMEcrystalinstance.zip" (
@@ -99,7 +100,6 @@ if exist "temp/OMEcrystalinstance.zip" (
 )
 
 rem Additions - Texturepacks
-cd ..
 if exist "temp/OMEtexturepacks.zip" (
   cd temp
   mkdir txtpacks 2>nul
