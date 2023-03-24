@@ -7,7 +7,7 @@ rem "cls" here clears output of chcp command that says its now using other chara
 cls
 
 rem Version variables
-set "ver=a0.0.10"
+set "ver=a0.0.10.1"
 set "OMEm-ver-validator=3"& rem check "Module Version Override.txt" file
 
 rem Set "select" variable to "r" to make sure installer.bat doesnt crash when nothing is inputted on fresh boot

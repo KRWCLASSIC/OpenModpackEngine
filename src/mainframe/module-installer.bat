@@ -13,6 +13,12 @@ ren *.zip OMEmods.zip
 move OMEmods.zip ..
 cls
 
+if defined crystal_download_source echo - Crystal Instance:
+if defined crystal_download_source curl -LJO "%crystal_download_source%"
+if defined crystal_download_source ren *.zip OMEcrystalinstance.zip
+if defined crystal_download_source move OMEcrystalinstance.zip .. 2>nul
+if defined crystal_download_source echo.
+
 rem Additions work almost the same as mods installation proccess but only when they exist
 echo Downloading modpack additions...
 echo.

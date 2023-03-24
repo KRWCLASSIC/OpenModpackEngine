@@ -25,20 +25,15 @@
 - Integration of other minecraft tools made in batch (with credits ofc)
 
 # For OpenModpackEngine downloader/manager:
-- MAJOR: Restructualization, basicly exe/new script for installing OME, app would be launched by single script and app files stored in AppData?
-  > or still the same but just hide installer.bat and src in "OME" folder (to help installation process) with new launcher and auto updater
-                                                                            ^^^ Make installation easier to do and read
+- Make Module Builder add ^ before specific characters in ASCII art's. Characters: ) ( | etc.
 - MPS (ModPackSwitcher) integration
 - Support for instance's based launchers (ATlauncher, Crystal Launcher etc.)
 - Exporting all downloaded/added modules
 - Much more customizability (OMEmodding)
 - Update system (soon)
-- Support for rift and quilt modpacks ↓↓↓ (Late development thing)
 - Checker if correct version of modloader is installed (add to: module-informator/interpreter and module-builder)
 - Auto Modloader downloader
-- Ability to include texture packs (and auto apply them? idk if this is even possible)
 - Recomended modpacks/modules (first i need to make this shit useable and somehow popular, nah, i can make my own modpacks XD(or just add existing ones as modules))
-- Backuper (Backups most important .minecraft files into program /src/backups/ folder (user will be told when installing modpack that this modpack/module uses texture pack))
 
 # Hell of ideas
 - *Rewrite in python (with GUI)*

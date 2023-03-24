@@ -69,6 +69,38 @@ cls
 echo Mods moved!
 timeout 3 >nul
 
+rem Crystal BETA
+if exist "temp/OMEcrystalinstance.zip" (
+  cd temp
+  mkdir crystal 2>nul
+  cd ..
+  rem Unzipping crystal instance
+  for %%f in (temp/OMEcrystalinstance.zip) do (
+    rem Extract the current file using embeded 7-Zip
+    "%cd%\misc\7zEmbeded.exe" x -y "%%f" -otemp/crystal 2>nul
+  )
+  cls
+  del temp\OMEcrystalinstance.zip 2>nul
+  echo Crystal instance extracted.
+  timeout 3 >nul
+  cls
+  
+  rem Moving crystal instance procedure
+  rem Iterate through all folders in the temp/crystal directory
+  cd temp/crystal
+  echo Moving crystal instance files...
+  for /D %%f in (*) do (
+    rem Move the current folder to the Minecraft config directory
+    xcopy /E /I /Y /Q "%%f" "%USERPROFILE%\%mc-dir%\%%f" >nul 2>nul
+  )
+  rem Move all files to the Minecraft config directory
+  move /y *.* "%USERPROFILE%\%mc-dir%" >nul 2>nul
+  cd ../..
+  cls
+  echo Crystal instance moved!
+  timeout 3 >nul
+)
+
 rem Additions - Texturepacks
 cd ..
 if exist "temp/OMEtexturepacks.zip" (
