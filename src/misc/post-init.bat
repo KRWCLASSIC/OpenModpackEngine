@@ -70,12 +70,8 @@ echo Mods moved!
 timeout 3 >nul
 cd ..
 
-cd
-pause
 rem Crystal BETA
 if exist "temp/OMEcrystalinstance.zip" (
-  cd
-  pause
   cd temp
   mkdir crystal 2>nul
   cd ..
@@ -99,6 +95,8 @@ if exist "temp/OMEcrystalinstance.zip" (
   )
   cd ../..
   cls
+  rmdir %USERPROFILE%\%mc-dir%\mods
+  rmdir %USERPROFILE%\%mc-dir%\config
   echo Crystal instance moved!
   timeout 3 >nul
 )
