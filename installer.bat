@@ -143,6 +143,7 @@ cls
 echo Downloading embeded 7-Zip...
 echo.
 curl -LJOS https://github.com/KRWCLASSIC/OpenModpackEngine/raw/master/src/misc/7zEmbeded.exe
+curl -LJOS https://github.com/KRWCLASSIC/OpenModpackEngine/raw/master/src/misc/7z.dll
 cls & rem Creating temp folder outside of the "src" folder (because it isnt exists yet) and downloading into it OME github repo
 echo Downloading neccessary files...
 echo.
